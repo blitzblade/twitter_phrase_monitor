@@ -1,0 +1,160 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>US Elections Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Jost:ital,wght@0,400;0,500;1,400;1,500&family=Kumbh+Sans:wght@300;400;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Sen:wght@400;700&Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/app.css">
+
+</head>
+
+<body class="article">
+
+    <main>
+        <article>
+            <figure class="feature-image">
+                <img src="../assets/img/Trump_and_Biden_with_American_flag.jpg" alt="Trump and Biden with American flag">
+            </figure>
+            <header class="entry-header">
+                <h1>Climate change: See How Sea Level Rise Will Change the World on the Next 50 Years</h1>
+                <p>Based on current global temperature increase per year and estimates on glacial melts.</p>
+            </header>
+            <div class="entry-content">
+                <section>
+                    <header></header>
+                    <p>Display map here</p>
+                </section>
+            </div>
+
+        </article>
+    </main>
+
+
+
+    
+
+    <script>
+    // Fetch the JSON file
+    fetch("../us-elections.json")
+
+    // Return the JSON data
+    .then(function (response) {
+        return response.json();
+    })
+
+    // Append the data to a function called data
+    .then(function (data) {
+        appendData(data);
+    })
+
+    // If there is an errir in the file, display error
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+
+    // Function to get and append the president name and year
+    function appendData(data) {
+
+        // Get the element in which you'll append the data
+        var mainContainer = document.getElementById("myData");
+
+        // Use a for loop to go through the array called "popular_vote_margin" in the JSON
+        for (var i = 0; i < data.popular_vote_margin.length; i++) {
+
+            // Create a list item for each value in the array
+            var divContainer = document.createElement("li");
+
+            // Reverse the order of the array
+            const reversedPresidents = data.popular_vote_margin.reverse();
+
+            // Inside the list item add the JSON data with the name popular_vote_margin[i].president_name. Note that we use data to access all the data, then .popular_vote_margin[i] (the [i] iterates through every value in the array) then .president_name to get the specific value inside the array
+            divContainer.innerHTML = '<h3>' + data.popular_vote_margin[i].president_name + '</h3>' + '<time>' + data.popular_vote_margin[i].year + '</time>';
+
+            // Then append the created HTML in the divContainer
+            mainContainer.appendChild(divContainer);
+        }
+
+
+        var presidentsArray = data.popular_vote_margin;
+
+        function findElement(presidentsArray, propName, propValue) {
+            for (var i=0; i < presidentsArray.length; i++)
+                if (presidentsArray[i][propName] == propValue)
+                return presidentsArray[i];
+
+                // will return undefined if not found; you could return a default instead
+        }
+
+        // Using the array from the question
+        var x = findElement(popular_vote_margin, "winning_party", "Dem.");
+        alert(x["value"]); // displays "hi"
+        }
+        
+
+
+    </script>
+
+
+        <!-- 
+
+        Notes: Put timeline of presidents in reverse order!
+
+        Task: Display the number of times Dem. is the value for the winning_party array element.
+
+        1. Count the number of times Dem. is the string value of the winning_party element.
+        2. Display it as a number of the page
+        3. Count the total number of arrays in the popular_vote_margin object
+        4. Calculate the number of Dem. strings as a percentage of the total number of arrays and display the % on the page
+    -->
+
+    <script>
+
+        // Create a variable for the total number of arrays in the popular_vote_margin object
+        //var popVoteMargin = 
+
+        /*function democrats(data) {
+
+            var democratLi = document.getElementById("democrats-percent");
+
+            for (var i = 0; i < data.popular_vote_margin.length; i++) { 
+
+                democratLi.innerHTML = '<p>' + data.popular_vote_margin[i].winning_party["Dem."].length + '</p>';
+
+                // Then append the created HTML in the divContainer
+                mainContainer.appendChild(democratLi);
+
+                console.log(democrats);
+            }
+        }
+
+        // var demPropName = "Dem.";
+
+        // function findElement(popular_vote_margin, winning_party, demPropName) {
+        //     for (var i=0; i < popular_vote_margin.length; i++)
+        //         if (popular_vote_margin[i][winning_party] == demPropName)
+        //         return popular_vote_margin[i];
+
+            // will return undefined if not found; you could return a default instead
+            }
+
+            // Using the array from the question
+            // var x = findElement(arr, "name", "k2"); // x is {"name":"k2", "value":"hi"}
+            // alert(x["value"]); // displays "hi"
+
+            // var y = findElement(arr, "name", "k9"); // y is undefined
+            // alert(y["value"]); // error because y is undefined
+
+            // alert(findElement(arr, "name", "k2")["value"]); // displays "hi";
+
+            // alert(findElement(arr, "name", "zzz")["value"]); // gives an error because the function returned undefined which won't have a "value" property
+        
+
+    </script>
+
+
+</body>
+</html>

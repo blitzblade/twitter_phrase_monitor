@@ -1,0 +1,842 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Covid Monitor</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
+    <link rel="stylesheet" href="assets/css.css?v=1.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Jost:ital,wght@0,400;0,500;1,400;1,500&family=Kumbh+Sans:wght@300;400;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Sen:wght@400;700&Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        
+        html,
+        body,
+        #map {
+            height: 400px;
+            width: 40vw;
+        }
+        /* ----------- iPhone 4 and 4S ----------- */
+        /* Portrait and Landscape */
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Portrait */
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Landscape */
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+        /* Portrait and Landscape */
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Portrait */
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Landscape */
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+        /* Portrait and Landscape */
+        
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Portrait */
+        
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Landscape */
+        
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* ----------- iPhone 6+, 7+ and 8+ ----------- */
+        /* Portrait and Landscape */
+        
+        @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Portrait */
+        
+        @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Landscape */
+        
+        @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* ----------- iPhone X ----------- */
+        /* Portrait and Landscape */
+        
+        @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Portrait */
+        
+        @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Landscape */
+        
+        @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* ----------- Galaxy S3 ----------- */
+        /* Portrait and Landscape */
+        
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Portrait */
+        
+        @media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Landscape */
+        
+        @media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* ----------- Galaxy S4, S5 and Note 3 ----------- */
+        /* Portrait and Landscape */
+        
+        @media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Portrait */
+        
+        @media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Landscape */
+        
+        @media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* ----------- Galaxy S6 ----------- */
+        /* Portrait and Landscape */
+        
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Portrait */
+        
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) and (orientation: portrait) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Landscape */
+        
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) and (orientation: landscape) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* ----------- Google Pixel ----------- */
+        /* Portrait and Landscape */
+        
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Portrait */
+        
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Landscape */
+        
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* ----------- Google Pixel XL ----------- */
+        /* Portrait and Landscape */
+        
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Portrait */
+        
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) and (orientation: portrait) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        /* Landscape */
+        
+        @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) and (orientation: landscape) {
+            html,
+            body,
+            #map {
+                height: 400px;
+                width: 100vw;
+            }
+        }
+        
+        #play {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        
+        #pause {
+            margin-right: 5px;
+        }
+        
+        .info {
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        
+        .info h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+        
+        .legend {
+            text-align: left;
+            line-height: 18px;
+            color: #555;
+        }
+        
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+        /*       .leaflet-control-attribution{display: none;} */
+        
+        .texto-casos {
+            font-size: 100%;
+            font-weight: 100%;
+            color: black;
+            /* Use color, background, set margins for offset, etc */
+        }
+    </style>
+</head>
+
+<body class="article" onload="">
+    <header class="site-header">
+        <div class="site-logo">
+            <a href="/"><img src="/assets/img/a_revolutionary_act.png" alt="A Revolutionary Act"></a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">Menu</div>
+        <nav>
+            <ul>
+                <li><a href="covid">Covid-19<small>Text here</small></a></li>
+                <li><a href="/elections">Elections <small>Text</small></a>
+                    <ul>
+                        <li>US elections</li>
+                        <li>UK elections</li>
+                        <li>German elections</li>
+                    </ul>
+                </li>
+                <li><a href="climate-change">Climate change <small>Text here</small></a></li>
+                <li><a href="california-wildfires">California Wildfires monitor <small>Monitor active wildfires and analyse historical fires.</small></a></li>
+                <li><a href="mass-shootings">US Mass shootings tracker <small>Every mass shooting in the last 72 hours</small></a></li>
+                <li><a href="/ai">AI tracker <small>Who is winnin gthe race for GAI?</small></a></li>
+                <li><a href="/quantum-computing">Quantum computing tracker</a> <small>Who is winnin gthe race for GAI?</small></li>
+                <li><a href="/solar-power">Solar power tracker <small>Text here</small></a></li>
+                <li><a href="/fusion-power">Fusion power tracker <small>Text here</small></a></li>
+                <li><a href="/cancer-cure">Cancer cure tracker <small>Text here</small></a></li>
+                <li><a href="/nano-technology">Nano technology tracker <small>Text here</small></a></li>
+                <li><a href="/epidemic-tracker">Epidemic tracker <small>Monitor potential epidemics and pandemics.</small></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <figure class="feature-image">
+                <img src="assets/img/covid.jpg" alt="Covid nurse in hospital">
+            </figure>
+            <header class="entry-header">
+                <h1>Covid Monitor</h1>
+                <p>See how Covid-19 is spreading accross the world.</p>
+            </header>
+            <div class="entry-content">
+                <section class="kpis">
+                    <h2>Snapshot</h2>
+                    <ul>
+                        <li>
+                            <div>
+                                <b>Country name</b>
+                                <i>% change compared to previous week</i>
+                                <small>worst affected country in last 7 days</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <b>Country name</b>
+                                <i>number (%) change compared to previous week</i>
+                                <small>most rapidly worsening country in last 7 days</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <b>Country name</b>
+                                <i>number (%) change compared to previous week</i>
+                                <small>most rapidly improving country in last 7 days</small>
+                            </div>
+                        </li>
+
+
+                        <li class="cases">
+                            <div>
+                                <b>number</b>
+                                <i>change (%) change in last 7 days</i>
+                                <small>Number of cases worldwide</small>
+                            </div>
+                        </li>
+                        <li class="deaths">
+                            <div>
+                                <b>number</b>
+                                <i>change (%) change in last 7 days</i>
+                                <small>Number of deaths worldwide</small>
+                            </div>
+                        </li>
+                        <li class="recoveries">
+                            <div>
+                                <b>number</b>
+                                <i>change (%) change in last 7 days</i>
+                                <small>Number of recovered patients worldwide</small>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section class="animated-map">
+                    <header>
+                        <h2>Animated Map of Covid-19 Deaths per Day</h2>
+                        <p>See how Covid-19 is spreading accross the world. One second represents one day.</p>
+                    </header>
+                    <div class="chart large-chart">
+                        <div id="map">
+                            <div id="sliderContainer" style="position: absolute; left: 10px; bottom: 10px; background-color: white; display: flex; justify-content: center; align-items: center; z-index: 5000">
+                                <button id="play" onclick='playButtonPress()'><i class="fa fa-play" aria-hidden="true"></i></button>
+                                <button id="pause" onclick='pauseButtonPress()'><i class="fa fa-pause" aria-hidden="true"></i></button>
+                                <button id="pause" onclick='resetButtonPress()'><i class="fas fa-reply"></i></button>
+                                <input type="range" id="timeSlider" min="4" max="241" value="4" style="float: left; padding: 10px;" oninput="updateTime(this.value);" onchange="updateTime(this.value);">
+                                <div id="currentTime" style="float: left; padding-left: 6px; padding-right: 6px;"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <section class="global-cases-deaths">
+                    <header>
+                        <h2>New cases and deaths per week</h2>
+                        <p>Total number of <strong>new cases</strong> per week compared to total number of deaths per week</p>
+                    </header>
+                    <div class="chart large-chart">
+                        <p>Please note Arshak: this chart should show new cases per week, not cumulative cases.</p>
+                    </div>
+                </section>
+                <section class="regional-charts">
+                    <header>
+                        <h2>Which regions are worst affected by Covid-19?</h2>
+                        <p>Number of new cases and number of new deaths per week, per region.</p>
+                    </header>
+                    <div class="multiple-charts six-charts">
+                        <figure>
+                            <div>
+                                North America chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                South America chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Europe chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Africa and the Middle East chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Asia chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Australasia chart
+                            </div>
+                        </figure>
+                    </div>
+                </section>
+                <section class="country-charts">
+                    <header>
+                        <h2>Which countries are worst affected by Covid-19?</h2>
+                        <p>Number of new cases and number of new deaths per week, per region.</p>
+                    </header>
+                    <div class="multiple-charts twelve-charts">
+                        <figure>
+                            <div>
+                                United States chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Canada chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Mexico chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                UK chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                France chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Italy chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Germany chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Sweden chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                China chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                South Africa chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Australia
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                                Brazil
+                            </div>
+                        </figure>
+                    </div>
+                </section>
+
+            </div>
+            <!-- .entry-content -->
+        </article>
+    </main>
+
+    <footer class="site-footer">
+
+        <p>&copy; copyright 2021 Charting Change.</p>
+    </footer>
+
+    <script type="text/javascript" src="src/json.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
+    <script>
+        var timeIndex = 4;
+        var times = [];
+
+
+        function addInformation(data) {
+            // control that shows state info on hover
+            info = L.control();
+            // console.log(data)
+            info.onAdd = function(map) {
+                this._div = L.DomUtil.create('div', 'info');
+                labels = [];
+                labels.push('<h4>total coronavirus death</h4>');
+                this._div.innerHTML = labels.join('');
+                return this._div;
+            };
+
+            info.update = function(id) {
+                object = Object.entries(id);
+                let arrayD = object[1][1].timeSeries
+                this._div.innerHTML = '<h4>total coronavirus death </h4>' + (id ?
+                    '<b>' + object[1][1].ADMIN + '</b><br />' :
+                    '');
+            };
+
+
+            info.addTo(map);
+
+        }
+        var dataGeo = statesData;
+
+
+        map = L.map('map').fitWorld();
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: '<a href="">Ghayth</a>',
+            id: 'mapbox/light-v9',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(map);
+        setTimeout(function() {
+            map.setView([30, 25], 1);
+        }, 0);
+
+
+        function getColor(d) {
+
+            return d > 1500 ? '#4c0218' :
+                d > 1000 ? '#800026' :
+                d > 500 ? '#BD0026' :
+                d > 200 ? '#E31A1C' :
+                d > 100 ? '#FC4E2A' :
+                d > 50 ? '#FD8D3C' :
+                d > 20 ? '#FEB24C' :
+                d > 10 ? '#FED976' :
+                d > 0 ? '#FFEDA0' :
+                'white';
+        }
+
+        function style(feature) {
+
+            if (feature.properties.timeSeries.length) {
+
+                return {
+                    fillColor: getColor(feature.properties.timeSeries[timeIndex][1]),
+                    weight: 1,
+                    opacity: 1,
+                    color: '#666',
+                    dashArray: '3',
+                    fillOpacity: 0.7
+                };
+            } else {
+
+                return {
+                    fillColor: getColor(0),
+                    weight: 1,
+                    opacity: 1,
+                    color: '#666',
+                    dashArray: '3',
+                    fillOpacity: 0.7
+                };
+            }
+
+
+        }
+
+        function createLegend() {
+
+            var legend = L.control({
+                position: 'bottomright'
+            });
+
+            legend.onAdd = function(map) {
+
+                var div = L.DomUtil.create('div', 'info legend'),
+                    grades = [0, 10, 20, 50, 100, 200, 500, 1000, 1500],
+                    labels = [],
+                    from, to;
+
+                labels.push(
+                    '<i>Deaths</i>');
+
+                for (var i = 0; i < grades.length; i++) {
+                    from = grades[i];
+                    to = grades[i + 1];
+
+                    labels.push(
+                        '<i style="background:' + getColor(from + 1) + '"></i> ' +
+                        from + (to ? ' &ndash; ' + to : '+'));
+                }
+
+                div.innerHTML = labels.join('<br>');
+                return div;
+            };
+
+            legend.addTo(map);
+
+        }
+
+        function highlightFeature(e) {
+            var layer = e.target;
+
+            layer.setStyle({
+                weight: 1,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                layer.bringToFront();
+            }
+            info.update(layer.feature);
+            zoomToFeature(e)
+        }
+
+        function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+        }
+
+        function zoomToFeature(e) {
+            console.log(e)
+            map.fitBounds(e.target.getBounds());
+        }
+
+        function onEachFeature(feature, layer) {
+            feature.properties.timeSeries.forEach(function(value, index) {
+                times.push(value[0]);
+            });
+            layer.on({
+                click: highlightFeature,
+                mouseout: resetHighlight,
+                // click: zoomToFeature
+            });
+
+
+        }
+        // console.log(dataGeo)
+        var geojson = L.geoJson(dataGeo, {
+            style: style,
+            onEachFeature: onEachFeature
+        }).addTo(map);
+
+
+
+
+        createLegend();
+        addInformation();
+
+        function updateTime(index) {
+            var time;
+
+            timeIndex = index;
+            geojson.setStyle(style);
+            time = times[timeIndex];
+            document.getElementById('currentTime').innerHTML = time
+
+
+        };
+
+
+        var sliderContainer = document.getElementById('sliderContainer');
+        L.DomEvent.disableClickPropagation(sliderContainer);
+        L.DomEvent.on(sliderContainer, 'click', L.DomEvent.stop);
+
+        map.fitBounds(geojson.getBounds());
+        var timeStart = 4;
+        var timeEnd = 241;
+        var isPaused = false;
+
+        function playButtonPress() {
+            isPaused = false;
+
+        }
+
+        function pauseButtonPress() {
+            isPaused = true;
+
+        }
+
+        function resetButtonPress() {
+            isPaused = false;
+            timeStart = 5;
+            timeEnd = 241;
+        }
+
+        var t = window.setInterval(function() {
+            if (!isPaused) {
+                if (timeStart == timeEnd) {} else {
+                    updateTime(timeStart);
+                    timeStart++;
+                    document.getElementById('timeSlider').value = timeStart;
+
+                }
+            }
+        }, 500);
+    </script>
+</body>
+
+</html>

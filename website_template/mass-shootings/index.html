@@ -1,0 +1,535 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Mass Shootings Monitor</title>
+
+    <link rel="stylesheet" href="../assets/app.css?v=1.1">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Jost:ital,wght@0,400;0,500;1,400;1,500&family=Kumbh+Sans:wght@300;400;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Sen:wght@400;700&Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="article" onload="mainfunc()">
+    <header class="site-header" w3-include-html="inc/header.html"></header>
+    <main>
+        <article>
+            <figure class="feature-image">
+                <img src="../assets/img/mass_shootings.jpg" alt="Mass shootings">
+            </figure>
+            <header class="entry-header">
+                <h1>Mass Shootings Monitor</h1>
+                <p>Every reported mass shooting in the United States, since 2010.</p>
+            </header>
+            <div class="entry-content">
+                <section class="kpis">
+                    <h2>2020 Snapshot</h2>
+                    <ul>
+                        <li>
+                            <div>
+                                <b><span id="nofshootings_2020"></span></b> Shootings
+                                <i id="nofshootings_2020_percentage"></i>
+                                <small>compared to same period in 2019</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <b><span id="deathsin2020"></span></b> deaths
+                                <i id="nofdeaths_2020_percentage"></i>
+                                <small>compared to same period in 2019</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <b><span id="injuredsin2020"></span></b> injureds
+                                <i id="nofinjured_2020_percentage"></i>
+                                <small>compared to same period in 2019</small>
+                            </div>
+                        </li>
+                        
+                        
+                        <li>
+                            <div>
+                                <a href="#city"><b><span id="worst_affected_city"></span></b>
+                                    <small>Worst affected city</small></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="#country"><b><span id="worst_affected_state"></span></b>
+                                    <small>Worst affected state</small></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="#incidents"><b><span id="worst_incident"></span></b>
+                                    <small>Worst incident</small></a>
+                            </div>
+                        </li>
+                    </ul>
+                  <h2>2020 incidents data</h2>
+                  <table id="table">
+                
+                  </table>
+                  <h4>Total: <span id="total"></span></h4>
+                
+                </section>
+                <section class="deaths-incidents">
+                    <header>
+                        <h2>Incidents and deaths</h2>
+                        <p>Number of reported incidents and deaths per every five years. In some incidents the number of deaths is estimated.</p>
+                    </header>
+                    <div class="chart large-chart">
+
+                        <canvas id="myChart" ></canvas>
+
+                        <table id="table" ></table>
+                    </div>
+                </section>
+            </div>
+            <!-- .entry-content -->
+        </article>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js" integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg==" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+    integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
+    crossorigin="anonymous"></script>
+
+    <script src="../assets/scripts.js"></script>
+
+
+    <script>
+        includeHTML();
+
+
+
+
+        ///////////// Mass Shootings KPIs start
+        function mainfunc() {
+
+        var data = null;
+
+        var xhr = new XMLHttpRequest();
+        // xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+        var results=JSON.parse(this.responseText);
+        var currentyear=new Date().getFullYear();
+        var last_year=new Date().getFullYear()-1;
+        var currentyear_from_moment= moment(currentyear + '-01-01');
+        var currentyear_from=moment(currentyear + '-01-01').toDate();
+        // console.log(currentyear_from);
+        // var currentyear_from=new Date(currentyear+'-01-01');
+        // var currentyear_to=new Date(currentyear + '-'+new Date().getMonth()+'-'+new Date().getDate());
+        var currentyear_to=moment('2020-12-31').toDate();
+        // console.log(currentyear_to);
+        var lastyear_from_moment=moment(last_year + '-01-01');
+        var lastyear_from= lastyear_from_moment.toDate();
+        // var lastyear_from=new Date(last_year+'-01-01');
+        var last_year_to_moment=moment(last_year+'-'+ moment().format('MM-DD'));
+        var last_year_to= last_year_to_moment.toDate();
+        console.log('===========lastyear=========================');
+        console.log(last_year_to);
+        console.log('====================================');
+        var last_year_data=filterdate(lastyear_from,last_year_to,results);
+        var current_year_data=filterdate(currentyear_from,currentyear_to,results);
+        appendkilltable(current_year_data);
+        addtotag('table', appendkilltable(current_year_data));
+        var count=0;
+        document.querySelectorAll('.killed').forEach(function (el) {
+                // Now do something with my button
+                count+= parseInt(el.innerHTML);
+
+            });
+        console.log('=============vt=======================');
+
+            console.log(count);
+        addtotag('total', count);
+        console.log('====================================');
+        var nofshootings_2020=current_year_data.length;
+        var nofshootings_2019=last_year_data.length;
+        var nofshootings_2020_percentage=((nofshootings_2019-nofshootings_2020)*100)/nofshootings_2019;
+        var nofshootings_2020_dif=nofshootings_2019-nofshootings_2020;
+        console.log(current_year_data);
+        addtotag('nofshootings_2020',current_year_data.length);
+        addtotag('nofshootings_2020_percentage',+nofshootings_2020_dif+'('+nofshootings_2020_percentage.toFixed(2)+')');
+        checkclass('nofshootings_2020_percentage',nofshootings_2020_dif);
+
+        var last_yeardeaths=getdeathcount(last_year_data);
+        var current_year_deaths=getdeathcount(current_year_data);
+        var death_dif=last_yeardeaths-current_year_deaths;
+        var death_precentage=(death_dif/last_yeardeaths)*100;
+        addtotag('deathsin2020', current_year_deaths);
+        addtotag('nofdeaths_2020_percentage',+death_dif+'('+death_precentage.toFixed(2)+')');
+        checkclass('nofdeaths_2020_percentage',death_dif);
+
+        var last_yearinjured=injuredcount(last_year_data);
+        var current_year_injured=injuredcount(current_year_data);
+        var injured_dif=last_yearinjured-current_year_injured;
+        var injured_precentage=(injured_dif/last_yearinjured)*100;
+
+        addtotag('injuredsin2020',last_yearinjured);
+        addtotag('nofinjured_2020_percentage',+injured_dif+'('+injured_precentage.toFixed(2)+')');
+        checkclass('nofinjured_2020_percentage',injured_dif);
+                  
+        var worst_affected_city_data= getworstaffectedcity(groupby_city(current_year_data));
+        addtotag('worst_affected_city',worst_affected_city_data.city+' '+worst_affected_city_data.killed+'-killed');
+        console.log('sum====================================');
+        console.log(current_year_data.sum("killed"));
+        console.log('====================================');
+        // console.log(groupby_state(current_year_data));
+        var worst_affected_state=getworstaffectedstate(groupby_state(current_year_data));
+        addtotag('worst_affected_state',worst_affected_state.state+' '+worst_affected_state.killed+'-killed');
+        // console.log(new Date().getFullYear()-1);
+        var worst_incident=getworstincident(current_year_data);
+        console.log(worst_incident);
+        addtotag('worst_incident',worst_incident.incident_date+'-'+worst_incident.city_or_country+' '+ worst_incident.killed+'-killed');
+        }
+        });
+
+        xhr.open("GET", "http://45.63.15.162:8000/data/allyears_gunviolence.json");
+
+        xhr.send(data);
+
+        }
+
+
+
+        function filterdate(startDate,endDate,data) {
+        var filteredData = data.filter(a => {
+        var date = new Date(a.incident_date);
+        // console.log(date);
+        return (date >= startDate && date <= endDate); }) ; return filteredData; } 
+
+        function addtotag(id,content) {
+            document.getElementById(id).innerHTML=content; } 
+            
+            
+            function add_class(element,value) {
+            document.getElementById(element).classList.add(value); }
+
+
+            function checkclass(element,data) { 
+                if (data>=0) {
+                add_class(element,'increase')
+                }else{
+
+                add_class(element,'decrease')
+                }
+            }
+            function getdeathcount(data) {
+                var deaths=0;
+                data.forEach(element => {
+                    deaths+=parseInt(element.killed);
+                });
+                console.log(deaths);
+                return deaths;
+              }
+            function injuredcount(data) {
+                var deaths=0;
+                data.forEach(element => {
+                    deaths+=parseInt(element.injured);
+                });
+                console.log(deaths);
+                return deaths;
+              }
+
+              function groupby_city(data) {
+                return data.reduce((r, a) => {
+
+                r[a.city_or_country] = [...r[a.city_or_country] || [], a];
+                return r;
+                      }, {});
+                }
+              function groupby_state(data) {
+                return data.reduce((r, a) => {
+
+                r[a.state] = [...r[a.state] || [], a];
+                return r;
+                      }, {});
+                }
+
+                function getworstaffectedcity(data) { 
+                    var cities=Object.keys(data);
+                      var city_arr=[];
+
+                    cities.forEach(element => {
+                        //  console.log();
+                        var city=data[element];
+                        var killed=0;
+                        for (let i = 0; i < city.length; i++) {
+                            const city_data = city[i];
+                            killed+=parseInt(city_data.killed);
+                        }
+
+                    city_arr.push({
+                    city:element,
+                    killed:killed
+                    });
+
+                    });
+                    
+                      return city_arr.sort((a, b) => b.killed - a.killed)[0];
+                  }
+                function getworstaffectedstate(data) {
+                    var states=Object.keys(data);
+                      var state_arr=[];
+
+                    states.forEach(element => {
+                        //  console.log();
+                        var state=data[element];
+                        var killed=0;
+                        for (let i = 0; i < state.length; i++) {
+                            const state_data = state[i];
+                            killed+=parseInt(state_data.killed);
+                        }
+
+                    state_arr.push({
+                    state:element,
+                    killed:killed
+                    });
+
+                    });
+                    //  console.log(state_arr);
+                      return state_arr.sort((a, b) => b.killed - a.killed)[0];
+                  }
+
+                    function getworstincident(data) {
+                        console.log(data.sort((a, b) => parseInt(b.killed) - parseInt(a.killed)));
+                    return data.sort((a, b) => parseInt(b.killed) -parseInt(a.killed))[0]; 
+                    }
+        Array.prototype.sum = function (prop) {
+        var total = 0
+        for (var i = 0, _len = this.length; i < _len; i++) {
+            total += parseInt(this[i][prop])
+        }
+        return total
+        }
+        function appendkilltable(data) {
+
+        var apn="";
+        var i=0;
+        apn += '<tr>';
+        apn += '<td>' + '#' + '</td>';
+        apn += '<td>' + 'city' + '</td>';
+        apn += '<td>' + 'date' + '</td>';
+        apn += '<td class="">' + 'killed' + '</td>';
+        apn += '</tr>';
+        data.forEach(element => {
+        apn+='<tr>';
+        apn+='<td>'+ (++i)+'</td>';
+        apn+='<td>'+ element.city_or_country+'</td>';
+        apn+='<td>'+ element.incident_date+'</td>';
+        apn+='<td class="killed">'+ element.killed+'</td>';
+        apn+='</tr>';
+
+        });
+
+        return apn;
+        }
+
+        ///////////// Mass Shootings KPIs end
+
+
+
+
+
+
+        
+
+        ///////////// Mass Shootings Incidents and Deaths Chart
+        window.onload=function (e) { 
+
+        main();
+        }
+
+        function renderChart(data, labels = []) {
+        var ctx = document.getElementById("myChart");
+        var color = Chart.helpers.color;
+        window.chartColors = {
+        red: "rgb(255, 99, 132)",
+        orange: "rgb(255, 159, 64)",
+        yellow: "rgb(255, 205, 86)",
+        green: "rgb(75, 192, 192)",
+        blue: "rgb(54, 162, 235)",
+        purple: "rgb(153, 102, 255)",
+        grey: "rgb(201, 203, 207)",
+        };
+        console.log(labels);
+        var myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: labels,
+          datasets: [
+          {
+              label: "number of incidents per year gunshoots 2014 - present",
+              data: data.kills,
+              backgroundColor: "#2793c6", //line chart background color goes here
+
+              borderColor: "#2793c6", //line chart border color goes here
+
+              type: "line",
+              pointRadius: 0,
+              fill: false,
+              lineTension: 0,
+              borderWidth: 2
+            },  {
+              label: "number of deaths per year gunshoots 2014 - present",
+              data: data.incidents,
+              backgroundColor: "#FC940B", //bar chart background color goes here
+
+              borderColor: "#FC940B", //bar chart border color goes here
+
+              type: "bar",
+              pointRadius: 0,
+              fill: false,
+              lineTension: 0,
+              borderWidth: 2,
+            },
+            
+          ],
+        },
+        options: {
+          scales: {
+            xAxes: [
+              {
+                type: "time",
+                distribution: "series",
+
+                time: {
+                  unit: "month",
+                  parser: "MMMM-YYYY",
+                  tooltipFormat: "MMMM-YYYY",
+                },
+              },
+            ],
+          },
+          tooltips: {
+            intersect: false,
+            mode: "index",
+            callbacks: {
+              label: function (tooltipItem, myData) {
+                // console.log(tooltipItem);
+                var label = myData.datasets[tooltipItem.datasetIndex].label || "";
+                if (label) {
+                  label += ": ";
+                }
+                label += parseInt(tooltipItem.value);
+                // console.log(label);
+                return label;
+              },
+            },
+          },
+        },
+        });
+        myChart.update();
+        }
+
+
+
+        function main() {
+
+        var data = null;
+
+        var xhr = new XMLHttpRequest();
+
+
+        xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === this.DONE) {
+            // console.log(this.responseText);
+            var results = JSON.parse(this.responseText);
+        // console.log(results);
+            var chrtdata = getchart_data(results);
+
+
+
+          }
+        });
+
+        xhr.open("GET", "http://45.63.15.162:8000/data/allyears_gunviolence.json");
+
+        xhr.send(data);
+        }
+
+        function getchart_data(data) {
+
+        var formated_data_kills=[];
+        var formated_data_incidents=[];
+        var data_array=[];
+        var apn="";
+        apn += "<tr>";
+        apn += "<td>" + "year" + "</td>";
+        apn += "<td>" + "deathcount" + "</td>";
+        apn += "<td>" + "incidents" + "</td>";
+        apn += "</tr>";
+
+        data.forEach(element => {
+        // console.log();
+        element.year=moment(element.incident_date).format('MMMM YYYY');
+        data_array.push(element);
+        });
+        var years=groupby_year(data_array);
+        var labels=Object.keys(years);
+
+        labels=labels.sort(function(a,b){
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date('01-'+b) - new Date('01-'+a);
+        });
+        labels.forEach(label => {
+        var total_killed=0;
+        years[label].forEach(element => {
+        var killed=0;
+        if ("killed" in element) {
+          killed = parseInt(element.killed);
+        }
+        total_killed+=killed;
+
+
+        });
+
+
+        apn += "<tr>";
+        apn += "<td>" + label + "</td>";
+        apn += "<td style='text-align:right'>" + total_killed  + "</td>";
+        apn += "<td style='text-align:right'>" + years[label].length  + "</td>";
+        apn += "</tr>";
+        formated_data_kills.push({
+        t: moment("01-"+label ).toDate(),
+        y: total_killed,
+        });
+        formated_data_incidents.push({
+        t: moment("01-"+label).toDate(),
+        y: years[label].length,
+        });
+
+        });
+
+        var chart_data={
+        'kills':formated_data_kills,
+        'incidents':formated_data_incidents
+        };
+        console.log(chart_data);
+        document.getElementById("table").innerHTML=apn;
+        renderChart(chart_data,labels);
+        }
+        function groupby_year(data) {
+                    return data.reduce((r, a) => {
+
+                    r[a.year] = [...r[a.year] || [], a];
+                    return r;
+                          }, {});
+                    }
+
+    </script>
+
+
+
+
+</body>
+</html>

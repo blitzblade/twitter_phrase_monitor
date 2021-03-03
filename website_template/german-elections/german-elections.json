@@ -1,0 +1,3185 @@
+{
+   "2005":{
+      "results_by_state":[
+         {
+            "State":"Baden-W\u00fcrttemberg",
+            "SPD":"30.1",
+            "CDU/CSU":"39.2",
+            "FDP":"11.9",
+            "LINKE":"3.8",
+            "GR\u00dcNE":"10.7",
+            "all others":"4.3"
+         },
+         {
+            "State":"Bavaria",
+            "SPD":"25.5",
+            "CDU/CSU":"49.2",
+            "FDP":"9.5",
+            "LINKE":"3.4",
+            "GR\u00dcNE":"7.9",
+            "all others":"4.5"
+         },
+         {
+            "State":"Berlin",
+            "SPD":"34.3",
+            "CDU/CSU":"22.0",
+            "FDP":"8.2",
+            "LINKE":"16.4",
+            "GR\u00dcNE":"13.7",
+            "all others":"5.4"
+         },
+         {
+            "State":"Brandenburg",
+            "SPD":"35.8",
+            "CDU/CSU":"20.6",
+            "FDP":"6.9",
+            "LINKE":"26.6",
+            "GR\u00dcNE":"5.1",
+            "all others":"5.1"
+         },
+         {
+            "State":"Bremen",
+            "SPD":"42.9",
+            "CDU/CSU":"22.8",
+            "FDP":"8.1",
+            "LINKE":"8.4",
+            "GR\u00dcNE":"14.3",
+            "all others":"3.5"
+         },
+         {
+            "State":"Hamburg",
+            "SPD":"38.7",
+            "CDU/CSU":"28.9",
+            "FDP":"9.0",
+            "LINKE":"6.3",
+            "GR\u00dcNE":"14.9",
+            "all others":"2.2"
+         },
+         {
+            "State":"Hesse",
+            "SPD":"35.6",
+            "CDU/CSU":"33.7",
+            "FDP":"11.7",
+            "LINKE":"5.3",
+            "GR\u00dcNE":"10.1",
+            "all others":"3.6"
+         },
+         {
+            "State":"Mecklenburg-Vorpommern",
+            "SPD":"31.7",
+            "CDU/CSU":"29.6",
+            "FDP":"6.3",
+            "LINKE":"23.7",
+            "GR\u00dcNE":"4.0",
+            "all others":"4.1"
+         },
+         {
+            "State":"Lower Saxony",
+            "SPD":"43.2",
+            "CDU/CSU":"33.6",
+            "FDP":"8.9",
+            "LINKE":"4.3",
+            "GR\u00dcNE":"7.4",
+            "all others":"2.6"
+         },
+         {
+            "State":"North Rhine-Westphalia",
+            "SPD":"40.0",
+            "CDU/CSU":"34.4",
+            "FDP":"10.0",
+            "LINKE":"5.2",
+            "GR\u00dcNE":"7.6",
+            "all others":"2.8"
+         },
+         {
+            "State":"Rhineland-Palatinate",
+            "SPD":"34.6",
+            "CDU/CSU":"36.9",
+            "FDP":"11.7",
+            "LINKE":"5.6",
+            "GR\u00dcNE":"7.3",
+            "all others":"3.9"
+         },
+         {
+            "State":"Saarland",
+            "SPD":"33.3",
+            "CDU/CSU":"30.2",
+            "FDP":"7.4",
+            "LINKE":"18.5",
+            "GR\u00dcNE":"5.9",
+            "all others":"4.7"
+         },
+         {
+            "State":"Saxony",
+            "SPD":"24.5",
+            "CDU/CSU":"30.0",
+            "FDP":"10.2",
+            "LINKE":"22.8",
+            "GR\u00dcNE":"4.8",
+            "all others":"7.7"
+         },
+         {
+            "State":"Saxony-Anhalt",
+            "SPD":"32.7",
+            "CDU/CSU":"24.7",
+            "FDP":"8.1",
+            "LINKE":"26.6",
+            "GR\u00dcNE":"4.1",
+            "all others":"3.9"
+         },
+         {
+            "State":"Schleswig-Holstein",
+            "SPD":"38.2",
+            "CDU/CSU":"36.4",
+            "FDP":"10.1",
+            "LINKE":"4.6",
+            "GR\u00dcNE":"8.4",
+            "all others":"2.2"
+         },
+         {
+            "State":"Thuringia",
+            "SPD":"29.8",
+            "CDU/CSU":"25.7",
+            "FDP":"7.9",
+            "LINKE":"26.1",
+            "GR\u00dcNE":"4.8",
+            "all others":"5.7"
+         }
+      ],
+      "results_by_party":[
+         {
+            "party":"Social Democratic Party (SPD)",
+            "Constituency":{
+               "Votes":"18,129,100",
+               "%":"38.4",
+               "+/-":"-3.5",
+               "Seats":"145"
+            },
+            "Party list":{
+               "+/-":"-4.3",
+               "Votes":"16,194,665",
+               "%":"34.2",
+               "Seats":"77"
+            },
+            "Total seats":{
+               "Seats":"-3",
+               "+/-":"222",
+               "%":"-29"
+            }
+         },
+         {
+            "party":"Christian Democratic Union (CDU)",
+            "Constituency":{
+               "Votes":"15,390,950",
+               "%":"32.6",
+               "+/-":"+0.6",
+               "Seats":"106"
+            },
+            "Party list":{
+               "+/-":"-1.7",
+               "Votes":"13,136,740",
+               "%":"27.8",
+               "Seats":"74"
+            },
+            "Total seats":{
+               "Seats":"-34",
+               "+/-":"180",
+               "%":"-10"
+            }
+         },
+         {
+            "party":"Free Democratic Party (FDP)",
+            "Constituency":{
+               "Votes":"2,208,531",
+               "%":"4.7",
+               "+/-":"-1.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+2.5",
+               "Votes":"4,648,144",
+               "%":"9.8",
+               "Seats":"61"
+            },
+            "Total seats":{
+               "Seats":"+14",
+               "+/-":"61",
+               "%":"+14"
+            }
+         },
+         {
+            "party":"The Left Party (PDS)",
+            "Constituency":{
+               "Votes":"3,764,168",
+               "%":"8.0",
+               "+/-":"+3.7",
+               "Seats":"3"
+            },
+            "Party list":{
+               "+/-":"+4.7",
+               "Votes":"4,118,194",
+               "%":"8.7",
+               "Seats":"51"
+            },
+            "Total seats":{
+               "Seats":"+51",
+               "+/-":"54",
+               "%":"+52"
+            }
+         },
+         {
+            "party":"Alliance 90/The Greens (Gr\u00fcne)",
+            "Constituency":{
+               "Votes":"2,538,913",
+               "%":"5.4",
+               "+/-":"-0.2",
+               "Seats":"1"
+            },
+            "Party list":{
+               "+/-":"-0.5",
+               "Votes":"3,838,326",
+               "%":"8.1",
+               "Seats":"50"
+            },
+            "Total seats":{
+               "Seats":"-4",
+               "+/-":"51",
+               "%":"-4"
+            }
+         },
+         {
+            "party":"Christian Social Union (CSU)",
+            "Constituency":{
+               "Votes":"3,889,990",
+               "%":"8.2",
+               "+/-":"-0.8",
+               "Seats":"44"
+            },
+            "Party list":{
+               "+/-":"-1.6",
+               "Votes":"3,494,309",
+               "%":"7.4",
+               "Seats":"2"
+            },
+            "Total seats":{
+               "Seats":"-13",
+               "+/-":"46",
+               "%":"-12"
+            }
+         },
+         {
+            "party":"National Democratic Party (NPD)",
+            "Constituency":{
+               "Votes":"857,777",
+               "%":"1.8",
+               "+/-":"+1.6",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+1.2",
+               "Votes":"748,568",
+               "%":"1.6",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"The Republicans (REP)",
+            "Constituency":{
+               "Votes":"38,678",
+               "%":"0.1",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"\u00b10",
+               "Votes":"266,101",
+               "%":"0.6",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"The Grays - Gray Panthers (GRAUE)",
+            "Constituency":{
+               "Votes":"6,340",
+               "%":"0.0",
+               "+/-":"-0.2",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.2",
+               "Votes":"198,601",
+               "%":"0.4",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Family Party (FAMILIE)",
+            "Constituency":{
+               "Votes":"76,064",
+               "%":"0.2",
+               "+/-":"+0.2",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.3",
+               "Votes":"191,842",
+               "%":"0.4",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Animal Protection Party",
+            "Constituency":{
+               "Votes":"7,341",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-0.1",
+               "Votes":"110,603",
+               "%":"0.2",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Party of Bible-abiding Christians (PBC)",
+            "Constituency":{
+               "Votes":"57,027",
+               "%":"0.1",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"\u00b10",
+               "Votes":"108,605",
+               "%":"0.2",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Marxist-Leninist Party (MLPD)",
+            "Constituency":{
+               "Votes":"16,480",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.1",
+               "Votes":"45,238",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Solidarity (B\u00fcSo)",
+            "Constituency":{
+               "Votes":"40,984",
+               "%":"0.1",
+               "+/-":"+0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.1",
+               "Votes":"35,649",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Bavaria Party (BP)",
+            "Constituency":{
+               "Votes":"16,047",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.1",
+               "Votes":"35,543",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Feminist Party (DIE FRAUEN)",
+            "Constituency":{
+               "Votes":"1,327",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"\u00b10",
+               "Votes":"27,497",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Alliance for Health, Peace and Social Justice (AGFG)",
+            "Constituency":{
+               "Votes":"570",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"21,350",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Social Equality Party (PSG)",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "+/-":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"15,605",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"50Plus",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "+/-":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"10,536",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"The Party",
+            "Constituency":{
+               "Votes":"6,923",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"10,379",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Pro DM",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "+/-":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"10,269",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Alliance for Germany (Deutschland)",
+            "Constituency":{
+               "Votes":"1,473",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"9,643",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Anarchist Pogo Party (APPD)",
+            "Constituency":{
+               "Votes":"3,018",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"4,233",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Centre Party (Zentrum)",
+            "Constituency":{
+               "Votes":"1,297",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"\u00b10",
+               "Votes":"4,010",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Party for a Rule of Law Offensive (Offensive D)",
+            "Constituency":{
+               "Votes":"5,401",
+               "%":"0.0",
+               "+/-":"-0.3",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-0.8",
+               "Votes":"3,338",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Independents (UNABH\u00c4NGIGE)",
+            "Constituency":{
+               "Votes":"11,703",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-",
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Total seats":{
+               "Seats":"-",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Humanist Party (HP)",
+            "Constituency":{
+               "Votes":"2,029",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-",
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Total seats":{
+               "Seats":"-",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"German Social Union (DSU)",
+            "Constituency":{
+               "Votes":"1,655",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-",
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Total seats":{
+               "Seats":"-",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Christian Centre (CM)",
+            "Constituency":{
+               "Votes":"1,011",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-",
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Total seats":{
+               "Seats":"-",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Human Economy Party",
+            "Constituency":{
+               "Votes":"639",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-",
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Total seats":{
+               "Seats":"-",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Statt Party",
+            "Constituency":{
+               "Votes":"496",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-",
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Total seats":{
+               "Seats":"-",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Electoral groups and independents",
+            "Constituency":{
+               "Votes":"118,130",
+               "%":"0.3",
+               "+/-":"+0.2",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-",
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Total seats":{
+               "Seats":"-",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"850,072",
+            "Constituency":{
+               "Votes":"\u2014",
+               "%":"\u2014",
+               "+/-":"\u2014",
+               "Seats":"\u2014"
+            },
+            "Party list":{
+               "+/-":"\u2014",
+               "Votes":"\u2014",
+               "%":"\u2014",
+               "Seats":"\u2014"
+            },
+            "Total seats":{
+               "Seats":"\u2014",
+               "+/-":"\u2014",
+               "%":"\u2014"
+            }
+         },
+         {
+            "party":"100",
+            "Constituency":{
+               "Votes":"\u00b10",
+               "%":"299",
+               "+/-":"\u00b10",
+               "Seats":"48,044,134"
+            },
+            "Party list":{
+               "+/-":"+11",
+               "Votes":"\u00b10",
+               "%":"315",
+               "Seats":"614"
+            },
+            "Total seats":{
+               "Seats":"+11",
+               "+/-":"100"
+            }
+         },
+         {
+            "party":"61,870,711",
+            "Constituency":{
+               "Votes":"77.7",
+               "%":"\u2014",
+               "+/-":"\u2014",
+               "Seats":"\u2014"
+            },
+            "Party list":{
+               "+/-":"\u2014",
+               "Votes":"77.7",
+               "%":"\u2014",
+               "Seats":"\u2014"
+            },
+            "Total seats":{
+               "Seats":"\u2014",
+               "+/-":"\u2014",
+               "%":"\u2014"
+            }
+         }
+      ]
+   },
+   "2009":{
+      "results_by_state":[
+         {
+            "State":"Baden-W\u00fcrttemberg",
+            "CDU/CSU(%)":"34.5",
+            "SPD(%)":"19.3",
+            "FDP(%)":"18.8",
+            "Left(%)":"7.2",
+            "Green(%)":"13.9",
+            "others(%)":"6.3"
+         },
+         {
+            "State":"Bavaria",
+            "CDU/CSU(%)":"42.6",
+            "SPD(%)":"16.8",
+            "FDP(%)":"14.7",
+            "Left(%)":"6.5",
+            "Green(%)":"10.8",
+            "others(%)":"8.6"
+         },
+         {
+            "State":"Berlin",
+            "CDU/CSU(%)":"22.8",
+            "SPD(%)":"20.2",
+            "FDP(%)":"11.5",
+            "Left(%)":"20.2",
+            "Green(%)":"17.4",
+            "others(%)":"7.9"
+         },
+         {
+            "State":"Brandenburg",
+            "CDU/CSU(%)":"23.6",
+            "SPD(%)":"25.1",
+            "FDP(%)":"9.3",
+            "Left(%)":"28.5",
+            "Green(%)":"6.1",
+            "others(%)":"7.4"
+         },
+         {
+            "State":"Bremen",
+            "CDU/CSU(%)":"23.9",
+            "SPD(%)":"30.3",
+            "FDP(%)":"10.6",
+            "Left(%)":"14.2",
+            "Green(%)":"15.4",
+            "others(%)":"5.6"
+         },
+         {
+            "State":"Hamburg",
+            "CDU/CSU(%)":"27.9",
+            "SPD(%)":"27.4",
+            "FDP(%)":"13.2",
+            "Left(%)":"11.2",
+            "Green(%)":"15.6",
+            "others(%)":"4.7"
+         },
+         {
+            "State":"Hesse",
+            "CDU/CSU(%)":"32.2",
+            "SPD(%)":"25.6",
+            "FDP(%)":"16.6",
+            "Left(%)":"8.5",
+            "Green(%)":"12.0",
+            "others(%)":"5.1"
+         },
+         {
+            "State":"Mecklenburg-Vorpommern",
+            "CDU/CSU(%)":"33.2",
+            "SPD(%)":"16.6",
+            "FDP(%)":"9.8",
+            "Left(%)":"29.0",
+            "Green(%)":"5.5",
+            "others(%)":"5.9"
+         },
+         {
+            "State":"Lower Saxony",
+            "CDU/CSU(%)":"33.2",
+            "SPD(%)":"29.3",
+            "FDP(%)":"13.3",
+            "Left(%)":"8.6",
+            "Green(%)":"10.7",
+            "others(%)":"4.9"
+         },
+         {
+            "State":"North Rhine-Westphalia",
+            "CDU/CSU(%)":"33.1",
+            "SPD(%)":"28.5",
+            "FDP(%)":"14.9",
+            "Left(%)":"8.4",
+            "Green(%)":"10.1",
+            "others(%)":"5.0"
+         },
+         {
+            "State":"Rhineland-Palatinate",
+            "CDU/CSU(%)":"35.0",
+            "SPD(%)":"23.8",
+            "FDP(%)":"16.6",
+            "Left(%)":"9.4",
+            "Green(%)":"9.7",
+            "others(%)":"5.5"
+         },
+         {
+            "State":"Saarland",
+            "CDU/CSU(%)":"30.7",
+            "SPD(%)":"24.7",
+            "FDP(%)":"11.9",
+            "Left(%)":"21.2",
+            "Green(%)":"6.8",
+            "others(%)":"4.7"
+         },
+         {
+            "State":"Saxony",
+            "CDU/CSU(%)":"35.6",
+            "SPD(%)":"14.6",
+            "FDP(%)":"13.3",
+            "Left(%)":"24.5",
+            "Green(%)":"6.7",
+            "others(%)":"5.3"
+         },
+         {
+            "State":"Saxony-Anhalt",
+            "CDU/CSU(%)":"30.1",
+            "SPD(%)":"16.9",
+            "FDP(%)":"10.3",
+            "Left(%)":"32.4",
+            "Green(%)":"5.1",
+            "others(%)":"5.2"
+         },
+         {
+            "State":"Schleswig-Holstein",
+            "CDU/CSU(%)":"32.2",
+            "SPD(%)":"26.8",
+            "FDP(%)":"16.3",
+            "Left(%)":"7.9",
+            "Green(%)":"12.7",
+            "others(%)":"4.1"
+         },
+         {
+            "State":"Thuringia",
+            "CDU/CSU(%)":"31.2",
+            "SPD(%)":"17.6",
+            "FDP(%)":"9.8",
+            "Left(%)":"28.8",
+            "Green(%)":"6.0",
+            "others(%)":"6.6"
+         }
+      ],
+      "results_by_party":[
+         {
+            "party":"Christian Democratic Union (CDU)",
+            "Constituency":{
+               "Votes":"13,856,674",
+               "%":"32.0",
+               "+/-":"-0.6",
+               "Seats":"173"
+            },
+            "Party list":{
+               "+/-":"-0.5",
+               "Votes":"11,828,277",
+               "%":"27.3",
+               "Seats":"21"
+            },
+            "Total seats":{
+               "Seats":"-53",
+               "+/-":"194",
+               "%":"+14"
+            }
+         },
+         {
+            "party":"Social Democratic Party (SPD)",
+            "Constituency":{
+               "Votes":"12,079,758",
+               "%":"27.9",
+               "+/-":"-10.5",
+               "Seats":"64"
+            },
+            "Party list":{
+               "+/-":"-11.2",
+               "Votes":"9,990,488",
+               "%":"23.0",
+               "Seats":"82"
+            },
+            "Total seats":{
+               "Seats":"+5",
+               "+/-":"146",
+               "%":"-76"
+            }
+         },
+         {
+            "party":"Free Democratic Party (FDP)",
+            "Constituency":{
+               "Votes":"4,076,496",
+               "%":"9.4",
+               "+/-":"+4.7",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+4.8",
+               "Votes":"6,316,080",
+               "%":"14.6",
+               "Seats":"93"
+            },
+            "Total seats":{
+               "Seats":"+32",
+               "+/-":"93",
+               "%":"+32"
+            }
+         },
+         {
+            "party":"The Left (DIE LINKE)",
+            "Constituency":{
+               "Votes":"4,791,124",
+               "%":"11.1",
+               "+/-":"+3.1",
+               "Seats":"16"
+            },
+            "Party list":{
+               "+/-":"+3.2",
+               "Votes":"5,155,933",
+               "%":"11.9",
+               "Seats":"60"
+            },
+            "Total seats":{
+               "Seats":"+9",
+               "+/-":"76",
+               "%":"+22"
+            }
+         },
+         {
+            "party":"Alliance 90/The Greens (GR\u00dcNE)",
+            "Constituency":{
+               "Votes":"3,977,125",
+               "%":"9.2",
+               "+/-":"+3.8",
+               "Seats":"1"
+            },
+            "Party list":{
+               "+/-":"+2.6",
+               "Votes":"4,643,272",
+               "%":"10.7",
+               "Seats":"67"
+            },
+            "Total seats":{
+               "Seats":"+17",
+               "+/-":"68",
+               "%":"+17"
+            }
+         },
+         {
+            "party":"Christian Social Union of Bavaria (CSU)",
+            "Constituency":{
+               "Votes":"3,191,000",
+               "%":"7.4",
+               "+/-":"-0.9",
+               "Seats":"45"
+            },
+            "Party list":{
+               "+/-":"-0.9",
+               "Votes":"2,830,238",
+               "%":"6.5",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"-2",
+               "+/-":"45",
+               "%":"-1"
+            }
+         },
+         {
+            "party":"Pirate Party (PIRATEN)",
+            "Constituency":{
+               "Votes":"46,770",
+               "%":"0.1",
+               "+/-":"+0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+2.0",
+               "Votes":"847,870",
+               "%":"2.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"National Democratic Party (NPD)",
+            "Constituency":{
+               "Votes":"768,442",
+               "%":"1.8",
+               "+/-":"-0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-0.1",
+               "Votes":"635,525",
+               "%":"1.5",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Human Environment Animal Protection",
+            "Constituency":{
+               "Votes":"16,887",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.3",
+               "Votes":"230,872",
+               "%":"0.5",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"The Republicans (REP)",
+            "Constituency":{
+               "Votes":"30,061",
+               "%":"0.1",
+               "+/-":"-0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-0.1",
+               "Votes":"193,396",
+               "%":"0.4",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Ecological Democratic Party (\u00f6dp)",
+            "Constituency":{
+               "Votes":"105,653",
+               "%":"0.2",
+               "+/-":"+0.2",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.3",
+               "Votes":"132,249",
+               "%":"0.3",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Family Party (FAMILIE)",
+            "Constituency":{
+               "Votes":"17,848",
+               "%":"0.0",
+               "+/-":"-0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-0.1",
+               "Votes":"120,718",
+               "%":"0.3",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Alliance 21/RRP",
+            "Constituency":{
+               "Votes":"37,946",
+               "%":"0.1",
+               "+/-":"+0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.2",
+               "Votes":"100,605",
+               "%":"0.2",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Pensioners' Party (RENTNER)",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "+/-":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "+/-":"+0.1",
+               "Votes":"56,399",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Bavaria Party (BP)",
+            "Constituency":{
+               "Votes":"32,324",
+               "%":"0.1",
+               "+/-":"+0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"\u00b10",
+               "Votes":"48,311",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"German People's Union (DVU)",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "+/-":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "+/-":"+0.1",
+               "Votes":"45,752",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Party of Bible-abiding Christians (PBC)",
+            "Constituency":{
+               "Votes":"12,052",
+               "%":"0.0",
+               "+/-":"-0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-0.1",
+               "Votes":"40,370",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Civil Rights Movement Solidarity (B\u00fcSo)",
+            "Constituency":{
+               "Votes":"34,894",
+               "%":"0.1",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"\u00b10",
+               "Votes":"38,706",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"The Violets (DIE VIOLETTEN)",
+            "Constituency":{
+               "Votes":"5,794",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.1",
+               "Votes":"31,957",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Marxist-Leninist Party (MLPD)",
+            "Constituency":{
+               "Votes":"17,512",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"\u00b10",
+               "Votes":"29,261",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Alliance for Germany (Volksabstimmung)",
+            "Constituency":{
+               "Votes":"2,550",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.1",
+               "Votes":"23,015",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Free Voters (FWD)",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "+/-":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"11,243",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Christian Centre (CM)",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "+/-":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"6,826",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Centre Party (ZENTRUM)",
+            "Constituency":{
+               "Votes":"369",
+               "%":"0.0",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"\u00b10",
+               "Votes":"6,087",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Social Equality Party (PSG)",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "+/-":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "+/-":"\u00b10",
+               "Votes":"2,957",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Alliance of the Centre (ADM)",
+            "Constituency":{
+               "Votes":"396",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"2,889",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"German Communist Party (DKP)",
+            "Constituency":{
+               "Votes":"929",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"+0.0",
+               "Votes":"1,894",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"\u00b10",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Free Union",
+            "Constituency":{
+               "Votes":"6,121",
+               "%":"0.0",
+               "+/-":"+0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-",
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Total seats":{
+               "Seats":"-",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"Electoral groups and independents",
+            "Constituency":{
+               "Votes":"139,275",
+               "%":"0.3",
+               "+/-":"\u00b10",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"-",
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Total seats":{
+               "Seats":"-",
+               "+/-":"0",
+               "%":"\u00b10"
+            }
+         },
+         {
+            "party":"757,575",
+            "Constituency":{
+               "Votes":"\u2014",
+               "%":"\u2014",
+               "+/-":"\u2014",
+               "Seats":"\u2014"
+            },
+            "Party list":{
+               "+/-":"\u2014",
+               "Votes":"\u2014",
+               "%":"\u2014",
+               "Seats":"\u2014"
+            },
+            "Total seats":{
+               "Seats":"\u2014",
+               "+/-":"\u2014",
+               "%":"\u2014"
+            }
+         },
+         {
+            "party":"100.0",
+            "Constituency":{
+               "Votes":"\u00b10.0",
+               "%":"299",
+               "+/-":"\u00b10",
+               "Seats":"44,005,575"
+            },
+            "Party list":{
+               "+/-":"+8",
+               "Votes":"\u00b10.0",
+               "%":"323",
+               "Seats":"622"
+            },
+            "Total seats":{
+               "Seats":"+8",
+               "+/-":"\u00b10"
+            }
+         },
+         {
+            "party":"62,168,489",
+            "Constituency":{
+               "Votes":"70.8",
+               "%":"-6.9",
+               "+/-":"\u2014",
+               "Seats":"\u2014"
+            },
+            "Party list":{
+               "+/-":"\u2014",
+               "Votes":"70.8",
+               "%":"-6.9",
+               "Seats":"\u2014"
+            },
+            "Total seats":{
+               "Seats":"\u2014",
+               "+/-":"\u2014",
+               "%":"\u2014"
+            }
+         }
+      ]
+   },
+   "2013":{
+      "results_by_state":[
+         {
+            "State":"Baden-W\u00fcrttemberg",
+            "CDU/CSU":"45.7",
+            "SPD":"20.6",
+            "LINKE":"4.8",
+            "GR\u00dcNE":"11.0",
+            "FDP":"6.2",
+            "AfD":"5.2",
+            "all others":"6.5"
+         },
+         {
+            "State":"Bavaria",
+            "CDU/CSU":"49.3",
+            "SPD":"20.0",
+            "LINKE":"3.8",
+            "GR\u00dcNE":"8.4",
+            "FDP":"5.1",
+            "AfD":"4.2",
+            "all others":"9.2"
+         },
+         {
+            "State":"Berlin",
+            "CDU/CSU":"28.5",
+            "SPD":"24.6",
+            "LINKE":"18.5",
+            "GR\u00dcNE":"12.3",
+            "FDP":"3.6",
+            "AfD":"4.9",
+            "all others":"7.6"
+         },
+         {
+            "State":"Brandenburg",
+            "CDU/CSU":"34.8",
+            "SPD":"23.1",
+            "LINKE":"22.4",
+            "GR\u00dcNE":"4.7",
+            "FDP":"2.5",
+            "AfD":"6.0",
+            "all others":"6.5"
+         },
+         {
+            "State":"Bremen",
+            "CDU/CSU":"29.3",
+            "SPD":"35.7",
+            "LINKE":"10.1",
+            "GR\u00dcNE":"12.1",
+            "FDP":"3.4",
+            "AfD":"3.7",
+            "all others":"5.7"
+         },
+         {
+            "State":"Hamburg",
+            "CDU/CSU":"32.2",
+            "SPD":"32.4",
+            "LINKE":"8.8",
+            "GR\u00dcNE":"12.6",
+            "FDP":"4.8",
+            "AfD":"4.1",
+            "all others":"5.1"
+         },
+         {
+            "State":"Hesse",
+            "CDU/CSU":"39.2",
+            "SPD":"28.8",
+            "LINKE":"6.0",
+            "GR\u00dcNE":"9.9",
+            "FDP":"5.6",
+            "AfD":"5.6",
+            "all others":"4.9"
+         },
+         {
+            "State":"Mecklenburg-Vorpommern",
+            "CDU/CSU":"42.5",
+            "SPD":"17.8",
+            "LINKE":"21.5",
+            "GR\u00dcNE":"4.3",
+            "FDP":"2.2",
+            "AfD":"5.6",
+            "all others":"6.1"
+         },
+         {
+            "State":"Lower Saxony",
+            "CDU/CSU":"41.1",
+            "SPD":"33.1",
+            "LINKE":"5.0",
+            "GR\u00dcNE":"8.8",
+            "FDP":"4.2",
+            "AfD":"3.7",
+            "all others":"4.1"
+         },
+         {
+            "State":"North Rhine-Westphalia",
+            "CDU/CSU":"39.8",
+            "SPD":"31.9",
+            "LINKE":"6.1",
+            "GR\u00dcNE":"8.0",
+            "FDP":"5.2",
+            "AfD":"3.9",
+            "all others":"5.1"
+         },
+         {
+            "State":"Rhineland-Palatinate",
+            "CDU/CSU":"43.3",
+            "SPD":"27.5",
+            "LINKE":"5.4",
+            "GR\u00dcNE":"7.6",
+            "FDP":"5.5",
+            "AfD":"4.8",
+            "all others":"5.9"
+         },
+         {
+            "State":"Saarland",
+            "CDU/CSU":"37.8",
+            "SPD":"31.0",
+            "LINKE":"10.0",
+            "GR\u00dcNE":"5.7",
+            "FDP":"3.8",
+            "AfD":"5.2",
+            "all others":"6.5"
+         },
+         {
+            "State":"Saxony",
+            "CDU/CSU":"42.6",
+            "SPD":"14.6",
+            "LINKE":"20.0",
+            "GR\u00dcNE":"4.9",
+            "FDP":"3.1",
+            "AfD":"6.8",
+            "all others":"8.0"
+         },
+         {
+            "State":"Saxony-Anhalt",
+            "CDU/CSU":"41.2",
+            "SPD":"18.2",
+            "LINKE":"23.9",
+            "GR\u00dcNE":"4.0",
+            "FDP":"2.6",
+            "AfD":"4.2",
+            "all others":"5.9"
+         },
+         {
+            "State":"Schleswig-Holstein",
+            "CDU/CSU":"39.2",
+            "SPD":"31.6",
+            "LINKE":"5.2",
+            "GR\u00dcNE":"9.4",
+            "FDP":"5.6",
+            "AfD":"4.6",
+            "all others":"4.4"
+         },
+         {
+            "State":"Thuringia",
+            "CDU/CSU":"38.8",
+            "SPD":"16.1",
+            "LINKE":"23.4",
+            "GR\u00dcNE":"4.9",
+            "FDP":"2.6",
+            "AfD":"6.2",
+            "all others":"8.0"
+         }
+      ],
+      "results_by_party":[
+         {
+            "party":"Christian Democratic Union (CDU)",
+            "Constituency":{
+               "Votes":"16,233,642",
+               "%":"37.2",
+               "+/-":"5.2",
+               "Seats":"191"
+            },
+            "Party list":{
+               "+/-":"6.9",
+               "Votes":"14,921,877",
+               "%":"34.1",
+               "Seats":"64"
+            },
+            "Total seats":{
+               "Seats":"43",
+               "+/-":"255",
+               "%":"61"
+            }
+         },
+         {
+            "party":"Social Democratic Party (SPD)",
+            "Constituency":{
+               "Votes":"12,843,458",
+               "%":"29.4",
+               "+/-":"1.5",
+               "Seats":"58"
+            },
+            "Party list":{
+               "+/-":"2.7",
+               "Votes":"11,252,215",
+               "%":"25.7",
+               "Seats":"135"
+            },
+            "Total seats":{
+               "Seats":"53",
+               "+/-":"193",
+               "%":"47"
+            }
+         },
+         {
+            "party":"The Left (DIE LINKE)",
+            "Constituency":{
+               "Votes":"3,585,178",
+               "%":"8.2",
+               "+/-":"2.9",
+               "Seats":"4"
+            },
+            "Party list":{
+               "+/-":"3.3",
+               "Votes":"3,755,699",
+               "%":"8.6",
+               "Seats":"60"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"64",
+               "%":"12"
+            }
+         },
+         {
+            "party":"Alliance 90/The Greens (GR\u00dcNE)",
+            "Constituency":{
+               "Votes":"3,180,299",
+               "%":"7.3",
+               "+/-":"1.9",
+               "Seats":"1"
+            },
+            "Party list":{
+               "+/-":"2.3",
+               "Votes":"3,694,057",
+               "%":"8.4",
+               "Seats":"62"
+            },
+            "Total seats":{
+               "Seats":"5",
+               "+/-":"63",
+               "%":"5"
+            }
+         },
+         {
+            "party":"Christian Social Union in Bavaria (CSU)",
+            "Constituency":{
+               "Votes":"3,544,079",
+               "%":"8.1",
+               "+/-":"0.7",
+               "Seats":"45"
+            },
+            "Party list":{
+               "+/-":"0.9",
+               "Votes":"3,243,569",
+               "%":"7.4",
+               "Seats":"11"
+            },
+            "Total seats":{
+               "Seats":"11",
+               "+/-":"56",
+               "%":"11"
+            }
+         },
+         {
+            "party":"Free Democratic Party (FDP)",
+            "Constituency":{
+               "Votes":"1,028,645",
+               "%":"2.4",
+               "+/-":"7.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"9.8",
+               "Votes":"2,083,533",
+               "%":"4.8",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"93",
+               "+/-":"0",
+               "%":"93"
+            }
+         },
+         {
+            "party":"Alternative for Germany (AfD)",
+            "Constituency":{
+               "Votes":"810,915",
+               "%":"1.9",
+               "+/-":"1.9",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"4.7",
+               "Votes":"2,056,985",
+               "%":"4.7",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Pirate Party (PIRATEN)",
+            "Constituency":{
+               "Votes":"963,623",
+               "%":"2.2",
+               "+/-":"2.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.2",
+               "Votes":"959,177",
+               "%":"2.2",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"National Democratic Party (NPD)",
+            "Constituency":{
+               "Votes":"635,135",
+               "%":"1.5",
+               "+/-":"0.3",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.2",
+               "Votes":"560,828",
+               "%":"1.3",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Free Voters (FW)",
+            "Constituency":{
+               "Votes":"431,640",
+               "%":"1.0",
+               "+/-":"1.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"1.0",
+               "Votes":"423,977",
+               "%":"1.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Human Environment Animal Protection (Tierschutzpartei)",
+            "Constituency":{
+               "Votes":"4,437",
+               "%":"0.0",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.2",
+               "Votes":"140,366",
+               "%":"0.3",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Ecological Democratic Party (\u00f6dp)",
+            "Constituency":{
+               "Votes":"128,209",
+               "%":"0.3",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.0",
+               "Votes":"127,088",
+               "%":"0.3",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"The Republicans (REP)",
+            "Constituency":{
+               "Votes":"27,299",
+               "%":"0.1",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.2",
+               "Votes":"91,193",
+               "%":"0.2",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Die PARTEI",
+            "Constituency":{
+               "Votes":"39,388",
+               "%":"0.1",
+               "+/-":"0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.2",
+               "Votes":"78,674",
+               "%":"0.2",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Bavaria Party (BP)",
+            "Constituency":{
+               "Votes":"28,430",
+               "%":"0.1",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.0",
+               "Votes":"57,395",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Alliance for Germany (Volksabstimmung)",
+            "Constituency":{
+               "Votes":"1,748",
+               "%":"0.0",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.0",
+               "Votes":"28,654",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Marxist-Leninist Party (MLPD)",
+            "Constituency":{
+               "Votes":"12,904",
+               "%":"0.0",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.0",
+               "Votes":"24,219",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Pensioners' Party (RENTNER)",
+            "Constituency":{
+               "Votes":"920",
+               "%":"0.0",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.1",
+               "Votes":"25,134",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Party of Bible-abiding Christians (PBC)",
+            "Constituency":{
+               "Votes":"2,081",
+               "%":"0.0",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.1",
+               "Votes":"18,542",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Civil Rights Movement Solidarity (B\u00fcSo)",
+            "Constituency":{
+               "Votes":"17,988",
+               "%":"0.0",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.1",
+               "Votes":"12,814",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Alliance 21/RRP (B\u00fcndnis 21/RRP)",
+            "Constituency":{
+               "Votes":"5,324",
+               "%":"0.0",
+               "+/-":"0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.2",
+               "Votes":"8,578",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"The Violets (DIE VIOLETTEN)",
+            "Constituency":{
+               "Votes":"2,516",
+               "%":"0.0",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.1",
+               "Votes":"8,211",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Family Party (FAMILIE)",
+            "Constituency":{
+               "Votes":"4,478",
+               "%":"0.0",
+               "+/-":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0.3",
+               "Votes":"7,449",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Social Equality Party (PSG)",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "+/-":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "+/-":"0",
+               "Votes":"4,564",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"Electoral groups and independents",
+            "Constituency":{
+               "Votes":"131,873",
+               "%":"0.3",
+               "+/-":"0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"0",
+               "Votes":"143,462",
+               "%":"0.3",
+               "Seats":"0"
+            },
+            "Total seats":{
+               "Seats":"0",
+               "+/-":"0",
+               "%":"0"
+            }
+         },
+         {
+            "party":"43,625,042",
+            "Constituency":{
+               "Votes":"98.4",
+               "%":"0.2",
+               "+/-":"299",
+               "Seats":"0"
+            },
+            "Party list":{
+               "+/-":"332",
+               "Votes":"98.7",
+               "%":"0.1",
+               "Seats":"9"
+            },
+            "Total seats":{
+               "Seats":"631",
+               "+/-":"9",
+               "%":"0"
+            }
+         },
+         {
+            "party":"684,883",
+            "Constituency":{
+               "Votes":"1.6",
+               "%":"0.1",
+               "+/-":"",
+               "Seats":""
+            },
+            "Party list":{
+               "+/-":"",
+               "Votes":"1.3",
+               "%":"0.1",
+               "Seats":""
+            },
+            "Total seats":{
+               "Seats":"",
+               "+/-":"",
+               "%":""
+            }
+         },
+         {
+            "party":"44,309,925",
+            "Constituency":{
+               "Votes":"100.0",
+               "%":"",
+               "+/-":"",
+               "Seats":""
+            },
+            "Party list":{
+               "+/-":"",
+               "Votes":"100.0",
+               "%":"",
+               "Seats":""
+            },
+            "Total seats":{
+               "Seats":"",
+               "+/-":"",
+               "%":""
+            }
+         }
+      ]
+   },
+   "2017":{
+      "results_by_state":[
+         {
+            "State":"Baden-W\u00fcrttemberg",
+            "Union":"34.4",
+            "SPD":"16.4",
+            "AfD":"12.2",
+            "FDP":"12.7",
+            "Linke":"6.4",
+            "Gr\u00fcne":"13.5",
+            "Others":"4.5"
+         },
+         {
+            "State":"Bavaria",
+            "Union":"38.8",
+            "SPD":"15.3",
+            "AfD":"12.4",
+            "FDP":"10.2",
+            "Linke":"6.1",
+            "Gr\u00fcne":"9.8",
+            "Others":"7.5"
+         },
+         {
+            "State":"Berlin",
+            "Union":"22.7",
+            "SPD":"17.9",
+            "AfD":"12.0",
+            "FDP":"8.9",
+            "Linke":"18.8",
+            "Gr\u00fcne":"12.6",
+            "Others":"7.0"
+         },
+         {
+            "State":"Brandenburg",
+            "Union":"26.7",
+            "SPD":"17.6",
+            "AfD":"20.2",
+            "FDP":"7.1",
+            "Linke":"17.2",
+            "Gr\u00fcne":"5.0",
+            "Others":"6.3"
+         },
+         {
+            "State":"Bremen",
+            "Union":"25.0",
+            "SPD":"26.3",
+            "AfD":"10.0",
+            "FDP":"9.3",
+            "Linke":"13.5",
+            "Gr\u00fcne":"11.0",
+            "Others":"4.3"
+         },
+         {
+            "State":"Hamburg",
+            "Union":"27.2",
+            "SPD":"23.5",
+            "AfD":"7.8",
+            "FDP":"10.8",
+            "Linke":"12.2",
+            "Gr\u00fcne":"13.9",
+            "Others":"4.5"
+         },
+         {
+            "State":"Hesse",
+            "Union":"30.9",
+            "SPD":"23.5",
+            "AfD":"11.9",
+            "FDP":"11.6",
+            "Linke":"8.1",
+            "Gr\u00fcne":"9.7",
+            "Others":"4.4"
+         },
+         {
+            "State":"Mecklenburg-Vorpommern",
+            "Union":"33.1",
+            "SPD":"15.1",
+            "AfD":"18.6",
+            "FDP":"6.2",
+            "Linke":"17.8",
+            "Gr\u00fcne":"4.3",
+            "Others":"4.9"
+         },
+         {
+            "State":"Lower Saxony",
+            "Union":"34.9",
+            "SPD":"27.4",
+            "AfD":"9.1",
+            "FDP":"9.3",
+            "Linke":"6.9",
+            "Gr\u00fcne":"8.7",
+            "Others":"3.6"
+         },
+         {
+            "State":"North Rhine-Westphalia",
+            "Union":"32.6",
+            "SPD":"26.0",
+            "AfD":"9.4",
+            "FDP":"13.1",
+            "Linke":"7.5",
+            "Gr\u00fcne":"7.6",
+            "Others":"3.8"
+         },
+         {
+            "State":"Rhineland-Palatinate",
+            "Union":"35.9",
+            "SPD":"24.2",
+            "AfD":"11.2",
+            "FDP":"10.4",
+            "Linke":"6.8",
+            "Gr\u00fcne":"7.6",
+            "Others":"3.9"
+         },
+         {
+            "State":"Saarland",
+            "Union":"32.4",
+            "SPD":"27.2",
+            "AfD":"10.1",
+            "FDP":"7.6",
+            "Linke":"12.9",
+            "Gr\u00fcne":"6.0",
+            "Others":"3.9"
+         },
+         {
+            "State":"Saxony",
+            "Union":"26.9",
+            "SPD":"10.5",
+            "AfD":"27.0",
+            "FDP":"8.2",
+            "Linke":"16.1",
+            "Gr\u00fcne":"4.6",
+            "Others":"6.7"
+         },
+         {
+            "State":"Saxony-Anhalt",
+            "Union":"30.3",
+            "SPD":"15.2",
+            "AfD":"19.6",
+            "FDP":"7.8",
+            "Linke":"17.8",
+            "Gr\u00fcne":"3.7",
+            "Others":"5.7"
+         },
+         {
+            "State":"Schleswig-Holstein",
+            "Union":"34.0",
+            "SPD":"23.3",
+            "AfD":"8.2",
+            "FDP":"12.6",
+            "Linke":"7.3",
+            "Gr\u00fcne":"12.0",
+            "Others":"2.7"
+         },
+         {
+            "State":"Thuringia",
+            "Union":"28.8",
+            "SPD":"13.2",
+            "AfD":"22.7",
+            "FDP":"7.8",
+            "Linke":"16.9",
+            "Gr\u00fcne":"4.1",
+            "Others":"6.5"
+         }
+      ],
+      "results_by_party":[
+         {
+            "party":"Christian Democratic Union (CDU)",
+            "Constituency":{
+               "Votes":"14,030,751",
+               "%":"30.2",
+               "Seats":"185"
+            },
+            "Party list":{
+               "Votes":"12,447,656",
+               "%":"26.8",
+               "Seats":"15"
+            },
+            "Totalseats":"200",
+            "+/-":"-55"
+         },
+         {
+            "party":"Social Democratic Party (SPD)",
+            "Constituency":{
+               "Votes":"11,429,231",
+               "%":"24.6",
+               "Seats":"59"
+            },
+            "Party list":{
+               "Votes":"9,539,381",
+               "%":"20.5",
+               "Seats":"94"
+            },
+            "Totalseats":"153",
+            "+/-":"-40"
+         },
+         {
+            "party":"Alternative for Germany (AfD)",
+            "Constituency":{
+               "Votes":"5,317,499",
+               "%":"11.5",
+               "Seats":"3"
+            },
+            "Party list":{
+               "Votes":"5,878,115",
+               "%":"12.6",
+               "Seats":"91"
+            },
+            "Totalseats":"94",
+            "+/-":"+94"
+         },
+         {
+            "party":"Free Democratic Party (FDP)",
+            "Constituency":{
+               "Votes":"3,249,238",
+               "%":"7.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"4,999,449",
+               "%":"10.7",
+               "Seats":"80"
+            },
+            "Totalseats":"80",
+            "+/-":"+80"
+         },
+         {
+            "party":"The Left (DIE LINKE)",
+            "Constituency":{
+               "Votes":"3,966,637",
+               "%":"8.6",
+               "Seats":"5"
+            },
+            "Party list":{
+               "Votes":"4,297,270",
+               "%":"9.2",
+               "Seats":"64"
+            },
+            "Totalseats":"69",
+            "+/-":"+5"
+         },
+         {
+            "party":"Alliance 90/The Greens (GR\u00dcNE)",
+            "Constituency":{
+               "Votes":"3,717,922",
+               "%":"8.0",
+               "Seats":"1"
+            },
+            "Party list":{
+               "Votes":"4,158,400",
+               "%":"8.9",
+               "Seats":"66"
+            },
+            "Totalseats":"67",
+            "+/-":"+4"
+         },
+         {
+            "party":"Christian Social Union in Bavaria (CSU)",
+            "Constituency":{
+               "Votes":"3,255,487",
+               "%":"7.0",
+               "Seats":"46"
+            },
+            "Party list":{
+               "Votes":"2,869,688",
+               "%":"6.2",
+               "Seats":"0"
+            },
+            "Totalseats":"46",
+            "+/-":"-10"
+         },
+         {
+            "party":"Free Voters",
+            "Constituency":{
+               "Votes":"589,056",
+               "%":"1.3",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"463,292",
+               "%":"1.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"Die PARTEI",
+            "Constituency":{
+               "Votes":"245,659",
+               "%":"0.5",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"454,349",
+               "%":"1.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"Human Environment Animal Protection",
+            "Constituency":{
+               "Votes":"22,917",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"374,179",
+               "%":"0.8",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"National Democratic Party",
+            "Constituency":{
+               "Votes":"45,169",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"176,020",
+               "%":"0.4",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"Pirate Party Germany",
+            "Constituency":{
+               "Votes":"93,196",
+               "%":"0.2",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"173,476",
+               "%":"0.4",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"Ecological Democratic Party",
+            "Constituency":{
+               "Votes":"166,228",
+               "%":"0.4",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"144,809",
+               "%":"0.3",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"Basic Income Alliance",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "Votes":"97,539",
+               "%":"0.2",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"V-Partei\u00b3",
+            "Constituency":{
+               "Votes":"1,201",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"64,073",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"German Centre",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "Votes":"63,203",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Democracy in Motion",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "Votes":"60,914",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Bavaria Party",
+            "Constituency":{
+               "Votes":"62,622",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"58,037",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"AD-DEMOCRATS",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "Votes":"41,251",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Animal Protection Alliance",
+            "Constituency":{
+               "Votes":"6,114",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"32,221",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Marxist-Leninist Party",
+            "Constituency":{
+               "Votes":"35,760",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"29,785",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"Party for Health Research",
+            "Constituency":{
+               "Votes":"1,537",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"23,404",
+               "%":"0.1",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"German Communist Party",
+            "Constituency":{
+               "Votes":"7,517",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"11,558",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Human World",
+            "Constituency":{
+               "Votes":"2,205",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"11,661",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"The Greys",
+            "Constituency":{
+               "Votes":"4,300",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"10,009",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Civil Rights Movement Solidarity",
+            "Constituency":{
+               "Votes":"15,960",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"6,693",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"The Humanists",
+            "Constituency":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Party list":{
+               "Votes":"5,991",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Magdeburger Garden Party",
+            "Constituency":{
+               "Votes":"2,570",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"5,617",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Alliance for Germany",
+            "Constituency":{
+               "Votes":"6,316",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"9,631",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"The Urbans",
+            "Constituency":{
+               "Votes":"772",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"3,032",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"The Right",
+            "Constituency":{
+               "Votes":"1,142",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"2,054",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Socialist Equality Party",
+            "Constituency":{
+               "Votes":"903",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"1,291",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"Bergpartei, die \"\u00dcberPartei\"",
+            "Constituency":{
+               "Votes":"672",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"911",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Party of Reason",
+            "Constituency":{
+               "Votes":"242",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"533",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"The Violets",
+            "Constituency":{
+               "Votes":"2,176",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"Alliance C - Christians for Germany",
+            "Constituency":{
+               "Votes":"1,717",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"New Liberals",
+            "Constituency":{
+               "Votes":"884",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"The Union",
+            "Constituency":{
+               "Votes":"371",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Family Party",
+            "Constituency":{
+               "Votes":"506",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         },
+         {
+            "party":"The Women",
+            "Constituency":{
+               "Votes":"439",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Renter's Party",
+            "Constituency":{
+               "Votes":"1,352",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Totalseats":"0",
+            "+/-":"New"
+         },
+         {
+            "party":"Others",
+            "Constituency":{
+               "Votes":"100,889",
+               "%":"0.2",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Totalseats":"0",
+            "+/-":"-"
+         },
+         {
+            "party":"Independents",
+            "Constituency":{
+               "Votes":"2,458",
+               "%":"0.0",
+               "Seats":"0"
+            },
+            "Party list":{
+               "Votes":"-",
+               "%":"-",
+               "Seats":"-"
+            },
+            "Totalseats":"0",
+            "+/-":"0"
+         }
+      ]
+   },
+   "2021":{
+      "results_by_state":[
+         
+      ],
+      "results_by_party":[
+         
+      ]
+   }
+}

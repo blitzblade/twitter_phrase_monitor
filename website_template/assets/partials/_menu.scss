@@ -1,0 +1,24 @@
+// Menu
+
+.menu-toggle {
+    position: fixed;
+    top: 1em;
+    right: 1rem;
+    background: black;
+    width: 4rem;
+    height: 4rem;
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        right: 1rem;
+        height: 1px;
+        background: white;
+    }
+    &:after {
+        top: auto;
+        bottom: 1rem;
+    }
+}

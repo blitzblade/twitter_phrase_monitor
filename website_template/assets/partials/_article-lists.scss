@@ -1,0 +1,36 @@
+// Article Lists
+
+@mixin article-list() {
+    margin: $gutter 0;
+
+    li {
+        article {
+            padding: $gutter;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+            span {
+                display: block;
+                background: #dbdbdb;
+                padding: $gutter-xl;
+                min-height: 8rem;
+                font-weight: bold;
+
+                small {
+                    display: block;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+
+    @media(min-width: $laptop) {
+        margin: $gutter -$gutter;
+    }
+}
+
+.article-list {
+    @include article-list;
+}

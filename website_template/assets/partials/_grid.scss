@@ -1,0 +1,252 @@
+// Mixins for semantic grid
+@mixin grid-container-full() {
+    //padding-right: $global-gutter-half;
+    //padding-left: $global-gutter-half;
+}
+@mixin grid-container-narrow() {
+    //padding-right: $global-gutter-half;
+    //padding-left: $global-gutter-half;
+    max-width: $global-width;
+    margin-left: auto;
+    margin-right: auto;
+}
+@mixin grid-x() {
+    display: flex;
+    flex-flow: row wrap;
+
+    @media (min-width: $laptop) {
+        //margin-left: -$global-gutter-half;
+        //margin-right: -$global-gutter-half;
+    }
+    @media (min-width: $desktop) {
+        //margin-left: -$global-gutter;
+        //margin-right: -$global-gutter;
+    }
+}
+@mixin cell() {
+    flex: 0 0 auto;
+    min-height: 0px;
+    min-width: 0px;
+    width: 100%;
+
+    @media (min-width: $laptop) {
+        //padding-left: $global-gutter-half;
+        //padding-right: $global-gutter-half;
+    }
+    @media (min-width: $desktop) {
+        //padding-left: $global-gutter;
+        //padding-right: $global-gutter;
+    }
+}
+  
+/* Phone cells */
+@mixin phone-1() {
+    width: 8.3333333333%;
+}
+@mixin phone-2() {
+    width: 16.6666666667%;
+}
+@mixin phone-3() {
+    width: 25%;
+}
+@mixin phone-4() {
+    width: 33.3333333%;
+}
+@mixin phone-5() {
+    width: 41.6666666667%;
+}
+@mixin phone-6() {
+    width: 50%;
+}
+@mixin phone-7() {
+    width: 58.333333333%;
+}
+@mixin phone-8() {
+    width: 66.6666666667%;
+}
+@mixin phone-9() {
+    width: 75%;
+}
+@mixin phone-10() {
+    width: 83.333333333%;
+}
+@mixin phone-11() {
+    width: 91.6666666667%;
+}
+@mixin phone-12() {
+    width: 100%;
+}
+
+
+/* tablet cells */
+@mixin tablet-1() {
+    @media (min-width: $tablet) { width: 8.3333333333%; }
+}
+@mixin tablet-2() {
+    @media (min-width: $tablet) { width: 16.6666666667%; }
+}
+@mixin tablet-3() {
+    @media (min-width: $tablet) { width: 25%; }
+}
+@mixin tablet-4() {
+    @media (min-width: $tablet) { width: 33.3333333%; }
+}
+@mixin tablet-5() {
+    @media (min-width: $tablet) { width: 41.6666666667%; }
+}
+@mixin tablet-6() {
+    @media (min-width: $tablet) { width: 50%; }
+}
+@mixin tablet-7() {
+    @media (min-width: $tablet) { width: 58.333333333%; }
+}
+@mixin tablet-8() {
+    @media (min-width: $tablet) { width: 66.6666666667%; }
+}
+@mixin tablet-9() {
+    @media (min-width: $tablet) { width: 75%; }
+}
+@mixin tablet-10() {
+    @media (min-width: $tablet) { width: 83.333333333%; }
+}
+@mixin tablet-11() {
+    @media (min-width: $tablet) { width: 91.6666666667%; }
+}
+@mixin tablet-12() {
+    @media (min-width: $tablet) { width: 100%; }
+}
+
+
+/* Laptop cells */
+@mixin laptop-1() {
+    @media (min-width: $laptop) { width: 8.3333333333%; }
+}
+@mixin laptop-2() {
+    @media (min-width: $laptop) { width: 16.6666666667%; }
+}
+@mixin laptop-3() {
+    @media (min-width: $laptop) { width: 25%; }
+}
+@mixin laptop-4() {
+    @media (min-width: $laptop) { width: 33.3333333%; }
+}
+@mixin laptop-5() {
+    @media (min-width: $laptop) { width: 41.6666666667%; }
+}
+@mixin laptop-6() {
+    @media (min-width: $laptop) { width: 50%; }
+}
+@mixin laptop-7() {
+    @media (min-width: $laptop) { width: 58.333333333%; }
+}
+@mixin laptop-8() {
+    @media (min-width: $laptop) { width: 66.6666666667%; }
+}
+@mixin laptop-9() {
+    @media (min-width: $laptop) { width: 75%; }
+}
+@mixin laptop-10() {
+    @media (min-width: $laptop) { width: 83.333333333%; }
+}
+@mixin laptop-11() {
+    @media (min-width: $laptop) { width: 91.6666666667%; }
+}
+@mixin laptop-12() {
+    @media (min-width: $laptop) { width: 100%; }
+}
+  
+  
+/* Desktop cells */
+@mixin desktop-1() {
+    @media (min-width: $desktop) { width: 8.3333333333%; }
+}
+@mixin desktop-2() {
+    @media (min-width: $desktop) { width: 16.6666666667%; }
+}
+@mixin desktop-3() {
+    @media (min-width: $desktop) { width: 25%; }
+}
+@mixin desktop-4() {
+    @media (min-width: $desktop) { width: 33.3333333%; }
+}
+@mixin desktop-5() {
+    @media (min-width: $desktop) { width: 41.6666666667%; }
+}
+@mixin desktop-6() {
+    @media (min-width: $desktop) { width: 50%; }
+}
+@mixin desktop-7() {
+    @media (min-width: $desktop) { width: 58.333333333%; }
+}
+@mixin desktop-8() {
+    @media (min-width: $desktop) { width: 66.6666666667%; }
+}
+@mixin desktop-9() {
+    @media (min-width: $desktop) { width: 75%; }
+}
+@mixin desktop-10() {
+    @media (min-width: $desktop) { width: 83.333333333%; }
+}
+@mixin desktop-11() {
+    @media (min-width: $desktop) { width: 91.6666666667%; }
+}
+@mixin desktop-12() {
+    @media (min-width: $desktop) { width: 100%; }
+}
+  
+  
+  /* Offsets */
+  @mixin offset-2() {
+    margin-left: 16.6666666667%;
+  }
+  @mixin reset-offset-2() {
+    margin-left: -16.6666666667%;
+  }
+  @mixin reset-offset-4() {
+    margin-left: -33.33333333%;
+  }
+  @mixin offset-4() {
+    margin-left: 33.333333333333%;
+  }
+  @mixin offset-5() {
+    margin-left: 41.66666666667%;
+  }
+  @mixin offset-6() {
+    margin-left: 50%;
+  }
+  @mixin offset-7() {
+    margin-left: 58.3333333333%;
+  }
+  
+  /* Grid classes */
+.grid {
+    @include grid-container-narrow;
+}
+.grid-full {
+    @include grid-container-full;
+}
+.x {
+    @include grid-x;
+
+    .c {
+        @include cell;
+    }
+    .t6 {
+        @include tablet-6;
+    }
+    .l4 {
+        @include laptop-4;
+    }
+    .l5 {
+        @include laptop-5;
+    }
+    .l6 {
+        @include laptop-6;
+    }
+    .l8 {
+        @include laptop-8;
+    }
+    .l12 {
+        @include laptop-12;
+    }
+}

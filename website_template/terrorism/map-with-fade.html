@@ -1,0 +1,445 @@
+<!-- Worldwide_Terrorist_Incidents_rev_001 -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Terrorist Incidents</title> 
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<script src="src/leaflet.js"></script>
+		<script src="src/world_map.js"></script>
+		<script src="src/data_incidents.js"></script>
+		<script src="src/dates.js"></script>
+		<link rel="stylesheet" href="src/leaflet.css" />
+		
+		<style>
+			.body{
+				padding: 0;
+				margin: 0;
+			}
+			
+			p {
+				font-family: Helvetica, Verdana, sans-serif;
+				font-size: 12px;
+				font-weight: normal;	
+			}
+
+			.leaflet-container {
+				background-color: #ffffff;
+			}
+
+			.custom .leaflet-popup-tip,
+			.custom .leaflet-popup-content-wrapper {
+				background: #ffffff; 
+				color: #000000; 
+				padding: 1px;
+				text-align: center;
+			}				
+			
+			.legend {
+				position: absolute;
+				top: 220px;
+				left: 25px;	
+				padding: 10px;	
+				z-index: 1000;
+				background-color: #d1cfd0;
+				border: 1px solid black;				
+			}
+			
+			.slider-container-results {
+				position: absolute;
+				bottom: 25px;
+				left: 25px;
+				padding: 5px;
+				right: 25px;
+				z-index: 1000;
+				width: 1185px;
+				background-color: #d1cfd0;
+				border: 1px solid black;
+				text-align:center;
+			}
+
+			.slider {
+				-webkit-appearance: none;
+				width: 100%;
+				height: 5px;
+				background: #969696;
+				outline: none;
+				opacity: 0.7;
+				-webkit-transition: .2s;
+				transition: opacity .2s;
+			}
+
+			.slider:hover {
+				opacity: 1;
+			}
+
+			.slider::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 15px;
+				height: 15px;
+				background: #ffffff;
+				cursor: pointer;
+			}
+
+			.slider::-moz-range-thumb {
+				width: 15px;
+				height: 15px;
+				background: #ffffff;
+				cursor: pointer;
+			}
+
+			 #button_play { 
+				position: absolute; 
+				bottom: 110px; 
+				left: 25px; 
+				z-index: 1000; 
+				width: 50px; 
+				height: 32px; 
+				text-align: center; 
+				background-color: #d1cfd0;
+				border: 1px solid black;
+			} 
+
+			 #button_pause { 
+				position: absolute; 
+				bottom: 110px;
+				left: 90px; 
+				z-index: 1000; 
+				width: 50px; 
+				height: 32px; 
+				text-align: center; 
+				background-color: #d1cfd0;
+				border: 1px solid black;
+			} 	
+			
+			 #button_reset { 
+				position: absolute; 
+				bottom: 110px;
+				left: 155px; 
+				z-index: 1000; 
+				width: 50px; 
+				height: 32px; 
+				text-align: center; 
+				background-color: #d1cfd0;
+				border: 1px solid black;
+			} 		
+
+			 #date_value {
+				text-align: left;			
+			 }
+			 
+			.legend-victims { 
+				position:absolute;
+				top: 390px; 
+				left: 25px;
+				z-index: 200; 
+				height: 310px; 
+				width: 140px;
+				font-size: 12px;
+				background-color: #d1cfd0;
+				border: 1px solid black;
+			}
+			 
+			#legend-victims-1000 {
+				position: absolute;  
+				top: 12px; 
+				left: 70px;
+				z-index: 1200; 
+			}
+			#legend-victims-500 {
+				position: absolute;  
+				top: 67px; 
+				left: 70px;
+				z-index: 1200; 
+			}			
+			#legend-victims-100 {
+				position: absolute;  
+				top: 118px; 
+				left: 70px;
+				z-index: 1200; 
+			}
+			#legend-victims-10 {
+				position: absolute;  
+				top: 170px; 
+				left: 70px;
+				z-index: 1200; 
+			}
+			#legend-victims-1 {
+				position: absolute;  
+				top: 220px; 
+				left: 70px;
+				z-index: 1200; 
+			}	
+			#legend-victims-no {
+				position: absolute;  
+				top: 270px; 
+				left: 70px;
+				z-index: 1200; 
+			}	
+
+			.fadded-add {
+				-webkit-animation: fadein 1s;
+				-moz-animation: fadein 1s;
+				-ms-animation: fadein 1s;
+				animation: fadein 1s;
+			}
+			
+			@keyframes fadein {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+
+			@-moz-keyframes fadein {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+
+			@-webkit-keyframes fadein {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+
+			@-ms-keyframes fadein {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+
+			@-o-keyframes fadein {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+				
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="map" style="width: 1250px; height: 900px; border: 3px solid black;">
+			<div class="slider-container-results" title="Slide to see the timeline of terrorist incidents"> 
+				<p id="date_value">Date: <b><span id="year_value"></span></b></p>
+				<input autocomplete="off" type="range" id="range_years" min="0" max="1929" value="0" class="slider">
+			</div>
+			<div class="legend-victims">
+				<p id="legend-victims-1000">> 1000</p>
+				<p id="legend-victims-500">501 - 1000 </p> 
+				<p id="legend-victims-100">101 - 500</p> 
+				<p id="legend-victims-10">11 - 100</p> 
+				<p id="legend-victims-1">1 - 10</p> 
+				<p id="legend-victims-no">0 </p> 
+			</div>
+				
+			<button id="button_play" onclick="loopResults()">Play</button>
+			<button id="button_pause" onclick="pauseResults()">Pause</button>
+			<button id="button_reset" onclick="resetResults()">Reset</button>
+		</div>
+
+		
+		<script>	
+			var map = L.map('map',{zoomSnap: 0.1, zoomControl: false, dragging: false, doubleClickZoom: false, scrollWheelZoom: false}).setView([30, 0], 2.3); 
+			
+			var layerGroupMarkers = L.layerGroup().addTo(map);
+			var layerGroupLegend = L.layerGroup().addTo(map);
+
+			function styleWorld() {
+				return {
+					fillColor: '#d7d5d7',
+					fillOpacity: 1,
+					color: '#ffffff',      
+					opacity: 1,
+					weight: 1
+				};
+			};
+
+			var worldMap = L.geoJSON(geojsonStates, {style: styleWorld});
+			worldMap.addTo(map);
+
+			var markerLocation1000 = new L.LatLng(36,-162);
+			var markerLocation500 = new L.LatLng(23,-162);
+			var markerLocation100 = new L.LatLng(9,-162);
+			var markerLocation10 = new L.LatLng(-6,-162);
+			var markerLocation1 = new L.LatLng(-20,-162);
+			var markerLocation0 = new L.LatLng(-33,-162);
+			
+			var markerLegend1000 = new L.circleMarker(markerLocation1000, {
+				radius: 25,
+				fillColor: "#ff0000",
+				color: "#000000",
+				weight: 1,
+				opacity: 1,
+				fillOpacity: 1
+				}	
+			).addTo(layerGroupLegend);	
+
+			var markerLegend500 = new L.circleMarker(markerLocation500, {
+				radius: 20,
+				fillColor: "#ff0000",
+				color: "#000000",
+				weight: 1,
+				opacity: 1,
+				fillOpacity: 1
+				}	
+			).addTo(layerGroupLegend);
+
+			var markerLegend100 = new L.circleMarker(markerLocation100, {
+				radius: 15,
+				fillColor: "#ff0000",
+				color: "#000000",
+				weight: 1,
+				opacity: 1,
+				fillOpacity: 1
+				}	
+			).addTo(layerGroupLegend);
+
+			var markerLegend10 = new L.circleMarker(markerLocation10, {
+				radius: 10,
+				fillColor: "#ff0000",
+				color: "#000000",
+				weight: 1,
+				opacity: 1,
+				fillOpacity: 1
+				}	
+			).addTo(layerGroupLegend);
+
+			var markerLegend1 = new L.circleMarker(markerLocation1, {
+				radius: 7,
+				fillColor: "#ff0000",
+				color: "#000000",
+				weight: 1,
+				opacity: 1,
+				fillOpacity: 1
+				}	
+			).addTo(layerGroupLegend);
+
+			var markerLegend0 = new L.circleMarker(markerLocation0, {
+				radius: 5,
+				fillColor: "#ff0000",
+				color: "#000000",
+				weight: 1,
+				opacity: 1,
+				fillOpacity: 1
+				}	
+			).addTo(layerGroupLegend);
+	
+			function sizeCircle(a) { 
+				return	a > 1000 ? '25' : 
+						a > 500 ?  '20' :
+						a > 100 ?  '15' :
+						a > 10 ?   '10' :
+						a > 1 ?    '7' :						
+								   '5';
+			};
+			
+
+			//function for play button
+			var slider = document.getElementById("range_years");
+			var output = document.getElementById("year_value");
+	
+			var timeoutValue;
+			var timeoutArray = [];
+
+			function loopResults() {
+				var startTime = 0; 
+
+				if (slider.value == 0) {
+					console.log("if loop");
+					for (let i = 0; i < dataArray.length; i++) {
+						timeoutValue = setTimeout(function(){
+							var lat = dataArray[i][1];
+							var lon = dataArray[i][2];
+							var radius = dataArray[i][3];				
+												
+							slider.value = i;
+							output.innerHTML = datesArray[i];
+				
+							var markerLocation = new L.LatLng(lat, lon);
+							var marker = new L.circleMarker(markerLocation, {
+								radius: sizeCircle(radius),
+								fillColor: "#ff0000",
+								color: "#000000",
+								weight: 1,
+								opacity: 1,
+								fillOpacity: 1,
+								className: "fadded-add"
+								}	
+							).addTo(layerGroupMarkers);	
+
+						setTimeout(function() {
+							if (marker != undefined) {
+								marker.setStyle({opacity: 0.5, fillOpacity: 0.5});
+							};
+							}, 2000);
+
+						setTimeout(function() {
+							if (marker != undefined) {
+								marker.setStyle({opacity: 0, fillOpacity: 0});
+							};
+							}, 2700);
+							
+						}, startTime + i*200);					
+						timeoutArray.push(timeoutValue);				
+					}
+				}
+				else {
+					console.log("else loop");
+					
+					for (let i = slider.value, t = 0; i < dataArray.length, t < dataArray.length; i++, t++) {
+						timeoutValue = setTimeout(function(){
+							var lat = dataArray[i][1];
+							var lon = dataArray[i][2];
+							var radius = dataArray[i][3];				
+
+							slider.value = i;		
+							output.innerHTML = datesArray[i];
+				
+							var markerLocation = new L.LatLng(lat, lon);
+							var marker = new L.circleMarker(markerLocation, {
+								radius: sizeCircle(radius),
+								fillColor: "#ff0000",
+								color: "#000000",
+								weight: 1,
+								opacity: 1,
+								fillOpacity: 1,
+								className: "fadded-add"
+								}	
+							).addTo(layerGroupMarkers);	
+
+						setTimeout(function() {
+							if (marker != undefined) {
+								marker.setStyle({opacity: 0.5, fillOpacity: 0.5});
+							};
+							}, 2000);
+
+						setTimeout(function() {
+							if (marker != undefined) {
+								marker.setStyle({opacity: 0, fillOpacity: 0});
+							};
+							}, 2700);
+							
+						}, startTime + t*200);	
+						timeoutArray.push(timeoutValue);
+					}
+				}
+			};
+			
+			// function for pause button
+			function pauseResults() {
+			for (let j = slider.value; j < timeoutArray.length; j++) {
+					clearTimeout(timeoutArray[j]);
+				}
+			};
+			
+
+			//function for reset button
+			function resetResults() {
+				for (let i = 0; i < timeoutArray.length; i++) {
+					clearTimeout(timeoutArray[i]);
+				}
+				layerGroupMarkers.clearLayers();
+				slider.value = 0;
+				output.innerHTML = datesArray[0];
+			};
+		</script>
+	</body>
+</html>

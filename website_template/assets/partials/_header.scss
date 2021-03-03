@@ -1,0 +1,127 @@
+// Site Header
+
+.site-header {
+    //background: rgba(0,0,0,0.8);
+    padding: 1.5rem 2rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+
+    .site-logo {
+        // position: absolute;
+        // left: 1.5rem;
+        // top: 1.5rem;
+        width: 15rem;
+        z-index: 9999;
+
+        a {
+            display: block;
+
+            img {
+                display: block;
+            }
+        }
+
+        @media (min-width: $laptop) {
+            width: 20rem;
+        }
+    }
+    .menu-toggle {
+        position: fixed;
+        top: 0em;
+        right: 0rem;
+        background: rgba(255,255,255,0.9);
+        width: 4.5rem;
+        height: 4.5rem;
+        cursor: pointer;
+        text-indent: -500000px;
+        z-index: 999;
+
+        @media (min-width: $tablet) {
+            width: 5rem;
+            height: 5rem;
+        }
+        @media (min-width: $desktop) {
+            width: 6rem;
+            height: 6rem;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 1.5rem;
+            right: 1rem;
+            height: 2px;
+            background: black;
+        }
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 48%;
+            bottom: 1.5rem;
+            left: 1rem;
+            right: 1rem;
+            border-top: solid 2px black;
+            border-bottom: solid 2px black;
+        }
+    }
+    nav {
+        @include hidden;
+        position: fixed;
+        background: white;
+        z-index: 9;
+        padding: 5%;
+        height: 100vh;
+    
+        ul {
+            @include grid-x;
+            font: 1.8rem $serif;
+
+            @media (min-width: $tablet) {
+                font-size: 2.1rem;
+            }
+            @media (min-width: $laptop) {
+                font-size: 2.4rem;
+            }
+            @media (min-width: $desktop) {
+                font-size: 2.7rem;
+            }
+            
+            li {
+                @include phone-12;
+                @include tablet-6;
+                @include laptop-4;
+                padding: 2rem;
+
+                a {
+                    display: block;
+
+                    small {
+                        display: block;
+                        margin-top: 0.5rem;
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+}
+.menu-open {
+    overflow: hidden;
+
+    .site-header {
+
+        nav {
+            @include visible;
+            height: 100vh;
+            overflow: scroll;
+
+            ul {
+
+            }
+        }
+    }
+}

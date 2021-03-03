@@ -1,0 +1,76 @@
+@mixin hidden() {
+    visibility: hidden;
+    opacity: 0;
+    z-index: -9999;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+@mixin visible() {
+    visibility: visible;
+    opacity: 1;
+    z-index: 9;
+    height: auto;
+    overflow: visible;
+}
+
+// media queries
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1366px;
+$desktop-xl: 1920px;
+
+// spacing
+$global-width: 1260px;
+$global-padding: 1rem;
+$global-margin: 1rem;
+
+// Padding/Margin in different screen sizes
+$gutter: 0rem;
+$gutter-xl: 0.5rem;
+$gutter-xxl: 1rem;
+// @media screen and (min-width: $laptop) {
+//     --gutter: 0.5rem;
+// }
+// @media screen and (min-width: $desktop) {
+//     --gutter: 1rem;
+// }
+// @media screen and (min-width: $desktop-xl) {
+//     --gutter: 1rem;
+// }
+
+
+
+
+
+// colours
+$data-bg: rgba(0,0,0,0.05);
+$primary: black;
+$line: #ddd;
+$line-dark: #000;
+$text: #050031;
+$input-bg: white;
+$input-detail: #050031;
+
+
+* {
+    max-width: 100%;
+}
+body {
+    padding: $gutter;
+}
+
+
+// Variable Padding by Screensize
+:root {
+    --half-article-padding: 2rem;
+  }
+@media (min-width: $tablet) {
+    :root {
+        --padding: 200px;
+    }
+}
+  
+  .container {
+    padding: var(--padding);
+  }

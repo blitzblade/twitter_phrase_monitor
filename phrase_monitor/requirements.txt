@@ -1,0 +1,10 @@
+Flask
+tweepy
+Flask-Session
+psycopg2-binary
+SQLAlchemy
+gunicorn
+psycopg2
+requests
+python-dotenv
+uwsgi

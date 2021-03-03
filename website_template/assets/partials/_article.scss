@@ -1,0 +1,315 @@
+// The Live Report / Monitor / News Theme Page / Article
+
+.article { 
+    
+    .feature-image {
+        height: 40vh;
+        overflow: hidden;
+        background: black;
+
+        img {
+            max-width: 100%;
+            position: fixed;
+            left: 0;
+            right: 0;
+            opacity: 0.5;
+        }
+
+        @media (min-width: $desktop) {
+            height: 60vh;
+        }
+    }
+    .feature-chart, #map {
+        height: 50vh;
+        width: 100%;
+    }
+    #map {
+        @include map;
+    }
+    .entry-header {
+        position: relative;
+        background: white;
+        text-align: center;
+        @include section-padding;
+
+        h1 {
+            @include headline;
+        }
+        p {
+            @include standfirst;
+        }
+    }
+    .entry-content {
+        position: relative;
+        background: white;
+
+        section {
+            @include section;
+
+            header {
+                text-align: center;
+
+                p {
+                    @include standfirst;
+                }
+            }
+            @include chart;
+        }
+        h2, h3, h4 {
+            @include subhead;
+        }
+        p, ul, ol {
+
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+    .kpis {
+
+        ul {
+            @include grid-x;
+
+            li {
+                @include cell;
+                @include tablet-6;
+                @include laptop-4;
+                padding: 1rem;
+                
+                div {
+                    @include padding;
+                    font-weight: bold;
+                    font-size: 2.1rem;
+                    background: $data-bg;
+                    color: $primary;
+
+                    a {
+                        text-decoration: none;
+                        color: black;
+                    }
+                    b {
+                        font-size: 180%;
+                    }   
+                    i {
+                        margin-top: 2rem;
+                    }
+                    i, small {
+                        font-size: 75%;
+                        display: block;
+                        opacity: 0.6;
+                    }
+                    small {
+                        margin: 0;
+                    }
+                    &.number {
+
+                        b {
+                            font-size: 300%;
+                        }
+                    }
+                }
+                &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+
+                    small {
+                        margin-top: 2.7rem;
+                    }
+                }
+            }
+        }       
+    }
+    .timeline {
+        @include timeline;
+    }
+    .attribute-nav {
+        @include attribute-nav;
+    }
+    .statement {
+        padding: $global-padding;
+        height: 100vh;
+
+        blockquote {
+            background: $data-bg;
+            padding: 10vh $global-padding;
+            text-align: center;
+            margin: 0;
+
+            p {
+                font-size: 2.1rem;
+                line-height: 1.05;
+                letter-spacing: -0.15rem;
+                width: 640px;
+                max-width: 100%;
+                margin: 0 auto;
+                text-align: left;
+            }
+
+            @media (min-width: $tablet) {
+                p {
+                    font-size: 3rem;
+                }
+            }
+            @media (min-width: $laptop) {
+                p {
+                    font-size: 4rem;
+                }
+            }
+            @media (min-width: $desktop) {
+                p {
+                    font-size: 5rem;
+                }
+            }
+
+        }
+    }
+}
+.article-image-right {
+
+    article {
+
+        .cover {
+            .entry-header {
+                text-align: left;
+                padding: 7% 7% 10% 6%;
+                
+                h1 {
+                    @include half-article-headline;
+                }
+                p {
+                    margin: 3rem 0 0 0;
+                }
+            }
+            .feature-image {
+                height: auto;
+                //padding: 0 2rem 2rem 0;
+                background: none;
+    
+                img {
+                    position: static;
+                    min-width: 100%;
+                    max-width: 200%;
+                    opacity: 1;
+                    display: block;
+                }
+            }
+        }
+        .the-text {
+            background: #ebebeb;
+
+            .entry-content {
+                max-width: 100%;
+                padding: 7% 7% 7% 6%;
+                background: none;
+                background: rgba(255,255,255,0.4);
+
+                p:first-of-type:first-letter {
+                    float: left;
+                    font-size: 15.9rem;
+                    font-weight: bold;
+                    line-height: 1;
+                    margin: -1.7rem 0.5rem -2rem -1rem;
+                }
+
+                blockquote.pullquote {
+                    // margin-top: 3rem;
+                    // padding-top: 3rem;
+                    // position: relative;
+                    border-left: solid 1rem;
+                    padding-left: 1rem;
+                    margin: 3rem 0;
+                    font-weight: bold;
+                }
+            }
+        }  
+    }
+}
+
+@media (min-width: $tablet) {
+    .article {
+        .feature-chart, #map {
+            height: 70vh;
+        }
+    }
+    .article-image-right {
+
+        article {
+    
+            .cover {
+                .entry-header {
+                    //padding: 5rem;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $laptop) {
+    .article {
+        .feature-chart, #map {
+            height: 80vh;
+        }
+    }
+
+    .article-image-right {
+
+        article {
+            .cover {
+                min-height: 100vh;
+
+                .entry-header {
+                    margin-top: auto;
+                }
+                .feature-image {
+                    //padding: 0 3rem 3rem 0;
+
+                    img {
+                        height: 100vh;
+                    }
+                }
+            }
+            .the-text {
+
+                .entry-content {
+
+                    blockquote.pullquote {
+                        float: right;
+                        width: 30rem;
+                        margin: 4rem -20rem 4rem 4rem;
+                        font-size: 2.4rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .feature-chart {
+        height: 80vh;
+    }
+    .article-image-right {
+
+        article {
+    
+            .cover {
+                .entry-header {
+                    //padding: 9rem;
+                }
+                .feature-image {
+                    //padding: 0 5rem 5rem 0;
+                    border-right: solid 5rem white;
+                }
+            }
+            .the-text {
+
+                .entry-content {
+
+                    blockquote.pullquote {
+                        width: 40rem;
+                        margin: 5rem -20rem 5rem 5rem;
+                        font-size: 3rem;
+                    }
+                }
+            }
+        }
+    }
+}

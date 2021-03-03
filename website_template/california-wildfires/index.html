@@ -1,0 +1,626 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>California Wildfires</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Jost:ital,wght@0,400;0,500;1,400;1,500&family=Kumbh+Sans:wght@300;400;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Sen:wght@400;700&Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+    <script src="../assets/scripts.js"></script>
+    <link rel="stylesheet" href="../assets/app.css">
+
+</head>
+
+<body class="article">
+    <header id="siteHeader" class="site-header"></header>
+    <main>
+        <article>
+            <figure class="feature-image">
+                <img src="../assets/img/california_wildfire.jpg" alt="Wildfire in California forest">
+            </figure>
+            <header class="entry-header">
+                <h1>Animated Map of California Wildfires: 1 Second Per Day</h1>
+                <p>See how wildfires spread accross California year after year.</p>
+            </header>
+            <div class="entry-content">
+                <section class="kpis">
+                    <h2>2020 Snapshot</h2>
+                    <ul>
+                        <li class="number">
+                            <div>
+                                <b id="activefires" ></b> active fires now
+                                <i class="decrease">+3%</i>
+                                <small>compared to same period in 2019</small>
+                            </div>
+                        </li>
+                        <li class="number">
+                            <div>
+                                <b id="firesin2020" ></b> fires in 2020
+                                <i class="increase">+20%</i>
+                                <small>compared to same period in 2019</small>
+                            </div>
+                        </li>
+                        <li class="number">
+                            <div>
+                                <b id="worst_fire_2020_actres"></b> acres burned in 2020
+                                <i class="decrease">-20%</i>
+                                <small>compared to same period in 2019</small>
+                            </div>
+                        </li>
+                    
+                        <li>
+                            <div>
+                              <span id="worst_in_2020"><b></b> </span> 
+                                <small>Worst fire in 2020</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <span id="worst_affected_country_fires"></span>  
+                                <small>Worst affected county</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                               <span id="worst_affected_country_acres"></span>
+                                <small>Worst affected county</small></a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="mainfunction()">Get results</button>
+                </section>
+                <section class="trend">
+                    <header>
+                        <h2>Acres burned</h2>
+                        <p>This chart shows the number of fires reported since 2010. We've extrapolated the trend line forward top 2050 to show you how bad the situation is likely to get.</p>
+                    </header>
+                    <figure class="chart">
+                        <canvas id="acresChart"></canvas>
+                    </figure>
+                </section>
+
+                <section class="trend">
+                    <header>
+                        <h2>Worst affected areas</h2>
+                        <p>This chart shows the number of fires reported since 2010. We've extrapolated the trend line forward top 2050 to show you how bad the situation is likely to get.</p>
+                    </header>
+                    <figure class="chart">
+                        <canvas id="firesChart"></canvas>
+                    </figure>
+
+                    <div style="display: none;">
+                    <label for="">Select years</label>
+                    <select name="" id="select" multiple></select>
+                    </div>
+                </section>
+
+                <section class="statement">
+                    <blockquote>
+                        <p>Based on this data, it will be normal for a thousand acres of woodland to burn every year, producing x tonnes of CO2, by 2030.</p>
+                    </blockquote>
+                </section>
+            
+        </div>
+        <!-- .entry-content -->-->
+    </article>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"
+integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg=="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
+<script src="values.js"></script>
+<script src="fires_files/fires_helpers.js"></script>
+<script src="fires_files/fires_koi.js"></script>
+<script src="fires_files/fires_map.js"></script>
+
+
+
+
+<!-- <script src="script2.js"></script> -->
+<script>
+window.onload = function (e) {
+  var ctx = document.getElementById("acresChart");
+  var myChart_data = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: [],
+      datasets: [],
+    },
+    options: {
+      legend: {
+        display: true,
+      },
+      scales: {
+        xAxes: [{
+          type: "time",
+          distribution: "series",
+
+          time: {
+            unit: "month",
+            parser: "MM",
+            tooltipFormat: "MMMM YYYY",
+             stacked: true,
+          },
+        }, ],
+        yAxes: [{
+          ticks: {
+            stepSize: 5000,
+          },
+        }, ],
+      },
+      tooltips: {
+        intersect: false,
+        mode: "index",
+        callbacks: {
+          label: function (tooltipItem, myData) {
+            // console.log(tooltipItem);
+            // console.log(myData.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].y);
+            // console.log(
+            //   tooltipItem
+            // );
+            var label =
+              myData.datasets[tooltipItem.datasetIndex].label || "";
+            if (label) {
+              label += ": ";
+            }
+            label += parseInt(
+              myData.datasets[tooltipItem.datasetIndex].data[
+                tooltipItem.index
+              ].y
+            );
+            // console.log(myData.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].y);
+            // label +=  Math.round(tooltipItem.yLabel * 100) / 100;
+            // console.log(label);
+            return label;
+          },
+        },
+      },
+    },
+  });
+  var select = document.getElementById("select");
+  const choices = new Choices(select, {
+    "removeItemButton": true
+  });
+  main(myChart_data, choices);
+
+select.addEventListener("change", function (e) {
+    var val = choices.getValue();
+    // console.log(val);
+var data = null;
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      // console.log(this.responseText);
+      var results = JSON.parse(this.responseText);
+      var start=new Date('2014-01-01');
+      var lastmonth=moment().subtract(1,'months').format('MM');
+      var current_year=moment().format('YYYY');
+      var end=moment(current_year+'-'+lastmonth+'-'+30).toDate();
+      var all_data=get_alldata(results);
+      all_data=filterdate(start,end,all_data);
+      // console.log(filterdate(start,end,all_data));
+      var group_year=groupbyyear(all_data);
+      var setchoice=getdatachoice(Object.keys(group_year));
+    
+      console.log(group_year);
+      var chrtdata = getchart_data(group_year, myChart_data, choices);
+    }
+  });
+
+  xhr.open(
+    "GET",
+    "http://45.63.15.162:8000/data/allyears_incidents.json"
+  );
+
+  xhr.send(data);
+  });
+}
+
+
+
+function main(myChart_data, choices) {
+  var data = null;
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      // console.log(this.responseText);
+      var results = JSON.parse(this.responseText);
+       var start=new Date('2014-01-01');
+      var lastmonth=moment().subtract(1,'months').format('MM');
+      var current_year=moment().format('YYYY');
+      var end=moment(current_year+'-'+lastmonth+'-'+30).toDate();
+      var all_data=get_alldata(results);
+      all_data=filterdate(start,end,all_data)
+      var group_year=groupbyyear(all_data);
+      var setchoice=getdatachoice(Object.keys(group_year));
+      console.log(all_data);
+    choices.setChoices(
+    setchoice,
+    'value',
+    'label',
+    false,
+  );
+      // console.log(myChart_data);
+      var chrtdata = getchart_data(group_year, myChart_data, choices);
+    }
+  });
+
+  xhr.open(
+    "GET",
+    "http://45.63.15.162:8000/data/allyears_incidents.json"
+  );
+
+  xhr.send(data);
+}
+
+function getdatachoice(data) { 
+var new_data=[];
+
+data.forEach(element => {
+new_data.push(
+{ value: element, label: element, selected: true })
+});
+return new_data;
+}
+
+
+
+function getchart_data(data, myChart_data, choices) {
+  var labels= ["January","February","March","April","May","June","July",
+        "August","September","October","November","December"];
+  var apn = "";
+  var data_set = [];
+  var colors = getcolors();
+  var dataset = [];
+var val = choices.getValue();
+var current_year=moment().format('YYYY');
+var lastmonth=moment().subtract(1,'months').format('MM');
+var lastdate=new Date(current_year+'-'+lastmonth+'-'+'30');
+// console.log(data);
+var colorcount=0;
+var count_arr=[];
+val.forEach(element => {
+var month_arr=groupbymonth_in_name(data[element.value]);
+
+labels.forEach(lbl => {
+ if (month_arr[lbl]===undefined) {
+   if (current_year != element.value) {
+     
+   }
+ }else{
+count_arr.push({
+        y: month_arr[lbl].sum('acres'),
+        t: moment(element.value +' '+lbl+" 01").toDate(),
+      });
+ }
+
+});
+
+
+});
+    var single_color = colors.getRandom();
+dataset.push({
+      label: "2014 january-"+current_year+' '+moment().subtract(1,'months').format('MMMM')+" fire burned acres count",
+      data: count_arr,
+      backgroundColor: single_color,
+
+      borderColor: single_color,
+
+      type: "line",
+      pointRadius: 2,
+      fill: false,
+      lineTension: 0,
+      borderWidth: 3,
+    });
+renderChart(dataset, labels, myChart_data);
+
+}
+
+function groupbyyear(attacks) {
+  return attacks.reduce((r, a) => {
+    r[a.year] = [...(r[a.year] || []), a];
+    return r;
+  }, {});
+}
+function groupbymonth_in_name(attacks) {
+  return attacks.reduce((r, a) => {
+    r[a.month_in_name] = [...(r[a.month_in_name] || []), a];
+    return r;
+  }, {});
+}
+
+
+window.onload = function (e) {
+  var ctx = document.getElementById("firesChart");
+  var myChart_data = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: [],
+      datasets: [],
+    },
+    options: {
+      legend: {
+        display: true,
+      },
+      scales: {
+        xAxes: [{
+          type: "time",
+          distribution: "series",
+
+          time: {
+            unit: "month",
+            parser: "MM",
+            tooltipFormat: "MMMM YYYY",
+             stacked: true,
+          },
+        }, ],
+        yAxes: [{
+          ticks: {
+            stepSize: 1,
+          },
+        }, ],
+      },
+      tooltips: {
+        intersect: false,
+        mode: "index",
+        callbacks: {
+          label: function (tooltipItem, myData) {
+            // console.log(tooltipItem);
+            // console.log(myData.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].y);
+            // console.log(
+            //   tooltipItem
+            // );
+            var label =
+              myData.datasets[tooltipItem.datasetIndex].label || "";
+            if (label) {
+              label += ": ";
+            }
+            label += parseInt(
+              myData.datasets[tooltipItem.datasetIndex].data[
+                tooltipItem.index
+              ].y
+            );
+            // console.log(myData.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].y);
+            // label +=  Math.round(tooltipItem.yLabel * 100) / 100;
+            // console.log(label);
+            return label;
+          },
+        },
+      },
+    },
+  });
+  var select = document.getElementById("select");
+  const choices = new Choices(select, {
+    "removeItemButton": true
+  });
+  main(myChart_data, choices);
+
+select.addEventListener("change", function (e) {
+    var val = choices.getValue();
+    // console.log(val);
+var data = null;
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      // console.log(this.responseText);
+      var results = JSON.parse(this.responseText);
+      var start=new Date('2014-01-01');
+      var lastmonth=moment().subtract(1,'months').format('MM');
+      var current_year=moment().format('YYYY');
+      var end=moment(current_year+'-'+lastmonth+'-'+30).toDate();
+      var all_data=get_alldata(results);
+      all_data=filterdate(start,end,all_data);
+      // console.log(filterdate(start,end,all_data));
+      var group_year=groupbyyear(all_data);
+      var setchoice=getdatachoice(Object.keys(group_year));
+    
+      console.log(group_year);
+      var chrtdata = getchart_data(group_year, myChart_data, choices);
+    }
+  });
+
+  xhr.open(
+    "GET",
+    "http://45.63.15.162:8000/data/allyears_incidents.json"
+  );
+
+  xhr.send(data);
+  });
+}
+
+function renderChart(data_set, labels = [], myChart_data) {
+  console.log('====================================');
+  console.log(data_set);
+  console.log('====================================');
+  myChart_data.data.datasets = data_set;
+  myChart_data.data.labels = labels;
+  myChart_data.update();
+}
+
+function main(myChart_data, choices) {
+  var data = null;
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      // console.log(this.responseText);
+      var results = JSON.parse(this.responseText);
+       var start=new Date('2014-01-01');
+      var lastmonth=moment().subtract(1,'months').format('MM');
+      var current_year=moment().format('YYYY');
+      var end=moment(current_year+'-'+lastmonth+'-'+30).toDate();
+      var all_data=get_alldata(results);
+      all_data=filterdate(start,end,all_data)
+      var group_year=groupbyyear(all_data);
+      var setchoice=getdatachoice(Object.keys(group_year));
+      console.log(all_data);
+    choices.setChoices(
+    setchoice,
+    'value',
+    'label',
+    false,
+  );
+      // console.log(myChart_data);
+      var chrtdata = getchart_data(group_year, myChart_data, choices);
+    }
+  });
+
+  xhr.open(
+    "GET",
+    "http://45.63.15.162:8000/data/allyears_incidents.json"
+  );
+
+  xhr.send(data);
+}
+
+function getdatachoice(data) { 
+var new_data=[];
+
+data.forEach(element => {
+new_data.push(
+{ value: element, label: element, selected: true })
+});
+return new_data;
+}
+function get_alldata(data) {
+var set=[];
+data.forEach(element => {
+element.year=moment(element.startedDate).format('YYYY');
+
+if (element.acres=='NAN' || element.acres=='') {
+    element.acres=0;
+}else{
+element.acres=parseFloat(numeral(element.acres).value());
+
+}
+element.month_in_number=moment(element.startedDate).format('MM');
+element.month_in_name=moment(element.startedDate).format('MMMM');
+set.push(element);
+});
+return set;
+}
+
+function getchart_data(data, myChart_data, choices) {
+  var labels= ["January","February","March","April","May","June","July",
+        "August","September","October","November","December"];
+  var apn = "";
+  var data_set = [];
+  var colors = [
+"aqua",
+"black",
+"blue",
+"fuchsia",
+"gray",
+"green",
+"lime",
+"maroon",
+"navy",
+"olive",
+"orange",
+"purple",
+"red",
+// "silver",
+"teal",
+// "white",
+"yellow",
+];
+  var dataset = [];
+var val = choices.getValue();
+
+var current_year=moment().format('YYYY');
+var lastmonth=moment().subtract(1,'months').format('MM');
+var lastdate=new Date(current_year+'-'+lastmonth+'-'+'30');
+// console.log(data);
+var colorcount=0;
+var count_arr=[];
+val.forEach(element => {
+var month_arr=groupbymonth_in_name(data[element.value]);
+labels.forEach(lbl => {
+//  console.log(element.value +'-'+lbl+"-01");
+ if (month_arr[lbl]===undefined) {
+   if (current_year != element.value) {
+     
+  //  count_arr.push({
+  //       y: 0,
+  //       t: moment(element.value +' '+lbl+" 01").toDate(),
+  //     });
+   }
+ }else{
+count_arr.push({
+        y: month_arr[lbl].length,
+        t: moment(element.value +' '+lbl+" 01").toDate(),
+      });
+ }
+// console.log(count_arr);
+
+});
+
+
+    // ++colorcount;
+});
+    var single_color = colors.getRandom();
+dataset.push({
+      
+      label: "2014 january-"+current_year+' '+moment().subtract(1,'months').format('MMMM')+" fire incidents count",
+      data: count_arr,
+      backgroundColor: single_color,
+
+      borderColor: single_color,
+
+      type: "line",
+      pointRadius: 2,
+      fill: false,
+      lineTension: 0,
+      borderWidth: 3,
+    });
+renderChart(dataset, labels, myChart_data);
+
+}
+
+function groupbyyear(attacks) {
+  return attacks.reduce((r, a) => {
+    r[a.year] = [...(r[a.year] || []), a];
+    return r;
+  }, {});
+}
+function groupbymonth_in_name(attacks) {
+  return attacks.reduce((r, a) => {
+    r[a.month_in_name] = [...(r[a.month_in_name] || []), a];
+    return r;
+  }, {});
+}
+function getlimitedval(data, count) {
+  // var newdata=data.slice(count,data.length);
+  var nwdata = [];
+  var i = 0;
+  data.forEach((element) => {
+    if (i <= count) {
+      nwdata.push(element);
+    }
+    ++i;
+  });
+  return nwdata;
+}
+
+</script>
+
+
+</body>
+</html>

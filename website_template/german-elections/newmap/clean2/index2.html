@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script type="text/javascript" src="src/json.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-request.v1.min.js"></script>
+
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        #map {
+            height: 100%;
+            width: 100vw;
+        }
+        
+        .info {
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        
+        .info h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+        
+        .legend {
+            text-align: left;
+            line-height: 18px;
+            color: #555;
+        }
+        
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+        /*       .leaflet-control-attribution{display: none;} */
+        
+        .texto-casos {
+            font-size: 100%;
+            font-weight: 100%;
+            color: black;
+            /* Use color, background, set margins for offset, etc */
+        }
+    </style>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='map'>
+        <div id="sliderContainer" style="position: absolute; left: 10px; bottom: 10px; background-color: white; display: flex; justify-content: center; align-items: center; z-index: 5000">
+            <button id="play" onclick='playButtonPress()'><i class="fa fa-play" aria-hidden="true"></i></button>
+            <button id="pause" onclick='pauseButtonPress()'><i class="fa fa-pause" aria-hidden="true"></i></button>
+            <button id="pause" onclick='resetButtonPress()'><i class="fas fa-reply"></i></button>
+            <input type="range" id="timeSlider" min="4" max="241" value="4" style="float: left; padding: 10px;" oninput="updateTime(this.value);" onchange="updateTime(this.value);">
+            <div id="currentTime" style="float: left; padding-left: 6px; padding-right: 6px;"></div>
+        </div>
+    </div>
+    <script>
+        // d3.csv("time_series_covid19_deaths_global.csv", function(error, data) {
+        //     if (error) throw error;
+
+        //     for (var i = 0; i < statesData.features.length; i++) {
+        //         for (var j = 0; j < data.length; j++) {
+        //             if (statesData.features[i].properties.ADMIN === data[j]['Country/Region'])
+
+        //                 statesData.features[i].properties.timeSeries.push(data[j])
+
+        //         }
+        //     }
+
+        // });
+        // blah = async() => {
+        //         for (var i = 0; i < statesData.features.length; i++) {
+
+        //             await fetch('https://api.covid19api.com/total/country/' + statesData.features[i].properties.ISO_A3, {
+        //                     method: 'GET',
+        //                     headers: {
+        //                         'Accept': 'application/json',
+        //                         'Content-Type': 'application/json'
+        //                     }
+        //                 })
+        //                 .then(response => response.json())
+        //                 .then(data => {
+        //                     // if(callOnce){
+        //                     //   callOnce = false;
+        //                     console.log(data.Date)
+        //                         // statesData.features[i].properties.timeSeries.push(data[j])
+        //                         // }
+        //                         // else{
+        //                         //   callOnce = true;
+        //                         // }
+        //                 });
+        //         }
+        //     }
+        // blah = async() => {
+        //         await fetch('https://ashikpaul.github.io/CountriesJson/countryCodes.json')
+        //             .then(response => response.json())
+        //             .then(data => {
+        //                 // if(callOnce){
+        //                 //   callOnce = false;
+        //                 countryCodes = data;
+        //                 console.log(countryCodes)
+
+        //                 // }
+        //                 // else{
+        //                 //   callOnce = true;
+        //                 // }
+        //             });
+
+        //         await fetch('https://api.covid19api.com/countries', {
+        //                 method: 'GET',
+        //                 headers: {
+        //                     'Accept': 'application/json',
+        //                     'Content-Type': 'application/json'
+        //                 }
+        //             })
+        //             .then(response => response.json())
+        //             .then(data => {
+        //                 // if(callOnce){
+        //                 //   callOnce = false;
+        //                 showCountries(data);
+        //                 // }
+        //                 // else{
+        //                 //   callOnce = true;
+        //                 // }
+        //             });
+        //     }
+        // blah();
+        var timeIndex = 5;
+        var times = [];
+
+
+        function addInformation(data) {
+            // control that shows state info on hover
+            info = L.control();
+            // console.log(data)
+            info.onAdd = function(map) {
+                this._div = L.DomUtil.create('div', 'info');
+                labels = [];
+                labels.push('<h4>total coronavirus death per day</h4>');
+                this._div.innerHTML = labels.join('');
+                return this._div;
+            };
+
+            info.update = function(id) {
+                object = Object.entries(id);
+                let arrayD = object[1][1].timeSeries
+                this._div.innerHTML = '<h4>total coronavirus death per day </h4>' + (id ?
+                    '<b>' + object[1][1].ADMIN + '</b><br />' :
+                    '');
+            };
+
+
+            info.addTo(map);
+
+        }
+
+        var dataGeo = statesData;
+
+
+        map = L.map('map');
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: '<a href="">Ghayth</a>',
+            id: 'mapbox/light-v9',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(map);
+        setTimeout(function() {
+            map.setView([30, 25], 1);
+        }, 0);
+
+
+        function getColor(d) {
+
+            return d > 1500 ? '#4c0218' :
+                d > 1000 ? '#800026' :
+                d > 500 ? '#BD0026' :
+                d > 200 ? '#E31A1C' :
+                d > 100 ? '#FC4E2A' :
+                d > 50 ? '#FD8D3C' :
+                d > 20 ? '#FEB24C' :
+                d > 10 ? '#FED976' :
+                d > 0 ? '#FFEDA0' :
+                'white';
+        }
+        var s = 0;
+
+        function style(feature) {
+
+            if (feature.properties.timeSeries.length) {
+
+                s = (feature.properties.timeSeries[timeIndex][1]) - (feature.properties.timeSeries[timeIndex - 1][1])
+
+                return {
+                    fillColor: getColor((feature.properties.timeSeries[timeIndex][1]) - (feature.properties.timeSeries[timeIndex - 1][1])),
+                    weight: 1,
+                    opacity: 1,
+                    color: '#666',
+                    dashArray: '3',
+                    fillOpacity: 0.7
+                };
+            } else {
+
+                return {
+                    fillColor: getColor(0),
+                    weight: 1,
+                    opacity: 1,
+                    color: '#666',
+                    dashArray: '3',
+                    fillOpacity: 0.7
+                };
+            }
+
+
+        }
+
+        function createLegend() {
+
+            var legend = L.control({
+                position: 'bottomright'
+            });
+
+            legend.onAdd = function(map) {
+
+                var div = L.DomUtil.create('div', 'info legend'),
+                    grades = [0, 10, 20, 50, 100, 200, 500, 1000, 1500],
+                    labels = [],
+                    from, to;
+
+                labels.push(
+                    '<i>Deaths</i>');
+
+                for (var i = 0; i < grades.length; i++) {
+                    from = grades[i];
+                    to = grades[i + 1];
+
+                    labels.push(
+                        '<i style="background:' + getColor(from + 1) + '"></i> ' +
+                        from + (to ? ' &ndash; ' + to : '+'));
+                }
+
+                div.innerHTML = labels.join('<br>');
+                return div;
+            };
+
+            legend.addTo(map);
+
+        }
+
+        function highlightFeature(e) {
+            var layer = e.target;
+
+            layer.setStyle({
+                weight: 1,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                layer.bringToFront();
+            }
+            info.update(layer.feature);
+            zoomToFeature(e)
+        }
+
+        function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+        }
+
+        function zoomToFeature(e) {
+            console.log(e)
+            map.fitBounds(e.target.getBounds());
+        }
+
+        function onEachFeature(feature, layer) {
+            feature.properties.timeSeries.forEach(function(value, index) {
+                times.push(value[0]);
+            });
+            layer.on({
+                click: highlightFeature,
+                mouseout: resetHighlight,
+                // click: zoomToFeature
+            });
+
+
+        }
+        // console.log(dataGeo)
+        var geojson = L.geoJson(dataGeo, {
+            style: style,
+            onEachFeature: onEachFeature
+        }).addTo(map);
+
+
+
+
+        createLegend();
+        addInformation();
+
+        function updateTime(index) {
+            var time;
+
+            timeIndex = index;
+            geojson.setStyle(style);
+            time = times[timeIndex];
+            document.getElementById('currentTime').innerHTML = time
+
+
+        };
+
+
+        var sliderContainer = document.getElementById('sliderContainer');
+        L.DomEvent.disableClickPropagation(sliderContainer);
+        L.DomEvent.on(sliderContainer, 'click', L.DomEvent.stop);
+
+        map.fitBounds(geojson.getBounds());
+        var timeStart = 5;
+        var timeEnd = 241;
+        var isPaused = false;
+
+        function playButtonPress() {
+            isPaused = false;
+
+        }
+
+        function pauseButtonPress() {
+            isPaused = true;
+
+        }
+
+        function resetButtonPress() {
+            isPaused = false;
+            timeStart = 5;
+            timeEnd = 241;
+        }
+
+        var t = window.setInterval(function() {
+            if (!isPaused) {
+                if (timeStart == timeEnd) {} else {
+                    updateTime(timeStart);
+                    timeStart++;
+                    document.getElementById('timeSlider').value = timeStart;
+
+                }
+            }
+        }, 500);
+    </script>
+</body>
+
+</html>

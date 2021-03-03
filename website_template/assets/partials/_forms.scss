@@ -1,0 +1,190 @@
+// Forms
+
+@mixin button() {
+  background: $primary;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.2em;
+  color: white;
+
+  b {
+      position: relative;
+
+      &:after {
+          @include fontawesome;
+          color: white;
+      }
+  }
+  &.play, &.pause {
+    width: 7rem;
+    height: 4rem;
+    display: inline-block;
+
+      b {
+        width: 7rem;
+        height: 4rem;
+        display: block;
+        text-indent: -50000px;
+        overflow: hidden;
+        text-align: left;
+
+          &:after {
+              content: "\f04b";
+              line-height: 4rem;
+              font-size: 1.2rem;
+              text-indent: 0;
+          }
+      }
+  }
+  &.pause {
+    b {
+      &:after {
+        content: "\f04c";
+      }
+    }
+  }
+}
+
+/* Buttons */
+button, input[type="submit"] {
+  @include button;
+}
+
+  
+/*Checkboxes*/
+@mixin checkbox {
+  display: inline-block;
+  border: solid 1px black;
+  margin: 0 1rem 0 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin: 0.5rem 1rem 0 0;
+  float: left;
+}
+  
+/* Radio buttons */
+@mixin radio-btn {
+  display: block;
+  position: relative;
+  padding-top: 2rem;
+  padding-left: 3rem;
+
+  .radio-button {
+      height: 2rem;
+      width: 2rem;
+      border: solid 5px #000;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      position: absolute;
+      left: 0;
+      top: 29px;
+
+      &::after {
+          content: "";
+          display: block;
+          height: 0.8rem;
+          width: 0.8rem;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #000;
+          opacity: 0;
+          transition: opacity 0.2s;
+      }
+  }
+  .radio-input:checked ~ .radio-label .radio-button:after {
+      opacity: 1;
+  }
+}
+fieldset {
+  border: none;
+  padding: 0;
+}
+input, button, select, textarea {
+  padding: 1.6rem;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+  @media (min-width: $desktop) {
+    //padding: 2rem;
+  }
+}
+button {
+  padding: 1rem 2rem;
+}
+input[type="checkbox"] {
+  @include checkbox;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1rem;
+  border-radius: 0.5rem;
+  padding: 0;
+  background: #a8a8a8;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+
+  &:hover {
+    opacity: 1;
+  }
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background: $input-detail;
+    cursor: pointer;
+    box-shadow: 0.1rem 0.1rem 0.3rem 0 rgba(0,0,0,0.5);
+  }
+  
+  &::-moz-range-thumb {
+    width: 2rem;
+    height: 2rem;
+    background: $input-detail;
+    cursor: pointer;
+  }
+  
+}
+
+
+
+
+@mixin newsletter-signup() {
+  input[type="email"] {
+    width: 70%;
+  }
+  input[type="submit"] {
+    width: 27%;
+    margin-left: 2%;
+    margin-bottom: 3rem;
+  }
+
+  #gdpr {
+    fieldset {
+      margin-bottom: 3rem;
+    }
+    p {
+      font-size: 1.8rem;
+      font-weight: normal;
+    }
+  }
+
+  @media (min-width: $laptop) {
+    #gdpr {
+      p {
+        font-size: 1.8rem;
+        font-weight: normal;
+      }
+    }
+  }
+}

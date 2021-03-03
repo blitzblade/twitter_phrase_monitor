@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Map of Every Terrorist Attac </title>
+
+    <script src="../assets/scripts.js"></script>
+    <link rel="stylesheet" href="../assets/app.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Jost:ital,wght@0,400;0,500;1,400;1,500&family=Kumbh+Sans:wght@300;400;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Sen:wght@400;700&Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+    rel="stylesheet"
+  />
+  <script src="src/leaflet.js"></script>
+  <script src="src/world_map.js"></script>
+  <script src="src/data_incidents.js"></script>
+  <script src="src/dates.js"></script>
+  <link rel="stylesheet" href="src/leaflet.css" />
+
+</head>
+
+  <body class="article" onload="mainload()" data-new-gr-c-s-check-loaded="14.980.0">
+    <header id="siteHeader" class="site-header"></header>
+    <main>
+      <article>
+        <figure class="feature-chart">
+          <div id="map">
+            <div class="grid-container-full slider-container" title="Slide to see the timeline of terrorist incidents"> 
+              <div class="x">
+                <div class="c l4">
+                  <button id="button_play" onclick="loopResults()">Play</button>
+                  <button id="button_pause" onclick="pauseResults()">Pause</button>
+                  <button id="button_reset" onclick="resetResults()">Reset</button>
+                </div>
+                <div class="c l8">
+                  <p id="date_value">Date: <b><span id="year_value"></span></b></p>
+                  <input autocomplete="off" type="range" id="range_years" min="0" max="1929" value="0" class="slider">
+                </div>
+              </div>
+            </div>
+            <div class="legend legend-victims">
+              <ul>
+                <li id="legend-victims-1000">> 1000</li>
+                <li id="legend-victims-500">501 - 1000 </li> 
+                <li id="legend-victims-100">101 - 500</li> 
+                <li id="legend-victims-10">11 - 100</li> 
+                <li id="legend-victims-1">1 - 10</li> 
+                <li id="legend-victims-no">0 </li>
+              </ul>
+            </div>
+              
+            
+          </div>
+      
+          
+          <script>	
+            var map = L.map('map',{zoomSnap: 0.1, zoomControl: false, dragging: false, doubleClickZoom: false, scrollWheelZoom: false}).setView([30, 0], 2.3); 
+            
+            var layerGroupMarkers = L.layerGroup().addTo(map);
+            var layerGroupLegend = L.layerGroup().addTo(map);
+      
+            function styleWorld() {
+              return {
+                fillColor: '#d7d5d7',
+                fillOpacity: 1,
+                color: '#ffffff',      
+                opacity: 1,
+                weight: 1
+              };
+            };
+      
+            var worldMap = L.geoJSON(geojsonStates, {style: styleWorld});
+            worldMap.addTo(map);
+      
+            var markerLocation1000 = new L.LatLng(36,-162);
+            var markerLocation500 = new L.LatLng(23,-162);
+            var markerLocation100 = new L.LatLng(9,-162);
+            var markerLocation10 = new L.LatLng(-6,-162);
+            var markerLocation1 = new L.LatLng(-20,-162);
+            var markerLocation0 = new L.LatLng(-33,-162);
+            
+            var markerLegend1000 = new L.circleMarker(markerLocation1000, {
+              radius: 25,
+              fillColor: "#ff0000",
+              color: "#000000",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 1
+              }	
+            ).addTo(layerGroupLegend);	
+      
+            var markerLegend500 = new L.circleMarker(markerLocation500, {
+              radius: 20,
+              fillColor: "#ff0000",
+              color: "#000000",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 1
+              }	
+            ).addTo(layerGroupLegend);
+      
+            var markerLegend100 = new L.circleMarker(markerLocation100, {
+              radius: 15,
+              fillColor: "#ff0000",
+              color: "#000000",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 1
+              }	
+            ).addTo(layerGroupLegend);
+      
+            var markerLegend10 = new L.circleMarker(markerLocation10, {
+              radius: 10,
+              fillColor: "#ff0000",
+              color: "#000000",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 1
+              }	
+            ).addTo(layerGroupLegend);
+      
+            var markerLegend1 = new L.circleMarker(markerLocation1, {
+              radius: 7,
+              fillColor: "#ff0000",
+              color: "#000000",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 1
+              }	
+            ).addTo(layerGroupLegend);
+      
+            var markerLegend0 = new L.circleMarker(markerLocation0, {
+              radius: 5,
+              fillColor: "#ff0000",
+              color: "#000000",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 1
+              }	
+            ).addTo(layerGroupLegend);
+        
+            function sizeCircle(a) { 
+              return	a > 1000 ? '25' : 
+                  a > 500 ?  '20' :
+                  a > 100 ?  '15' :
+                  a > 10 ?   '10' :
+                  a > 1 ?    '7' :						
+                         '5';
+            };
+            
+      
+            //function for play button
+            var slider = document.getElementById("range_years");
+            var output = document.getElementById("year_value");
+        
+            var timeoutValue;
+            var timeoutArray = [];
+      
+            function loopResults() {
+              var startTime = 0; 
+      
+              if (slider.value == 0) {
+                console.log("if loop");
+                for (let i = 0; i < dataArray.length; i++) {
+                  timeoutValue = setTimeout(function(){
+                    var lat = dataArray[i][1];
+                    var lon = dataArray[i][2];
+                    var radius = dataArray[i][3];				
+                              
+                    slider.value = i;
+                    output.innerHTML = datesArray[i];
+              
+                    var markerLocation = new L.LatLng(lat, lon);
+                    var marker = new L.circleMarker(markerLocation, {
+                      radius: sizeCircle(radius),
+                      fillColor: "#ff0000",
+                      color: "#000000",
+                      weight: 1,
+                      opacity: 1,
+                      fillOpacity: 1,
+                      className: "fadded-add"
+                      }	
+                    ).addTo(layerGroupMarkers);	
+      
+                  setTimeout(function() {
+                    if (marker != undefined) {
+                      marker.setStyle({opacity: 0.5, fillOpacity: 0.5});
+                    };
+                    }, 2000);
+      
+                  setTimeout(function() {
+                    if (marker != undefined) {
+                      marker.setStyle({opacity: 0, fillOpacity: 0});
+                    };
+                    }, 2700);
+                    
+                  }, startTime + i*200);					
+                  timeoutArray.push(timeoutValue);				
+                }
+              }
+              else {
+                console.log("else loop");
+                
+                for (let i = slider.value, t = 0; i < dataArray.length, t < dataArray.length; i++, t++) {
+                  timeoutValue = setTimeout(function(){
+                    var lat = dataArray[i][1];
+                    var lon = dataArray[i][2];
+                    var radius = dataArray[i][3];				
+      
+                    slider.value = i;		
+                    output.innerHTML = datesArray[i];
+              
+                    var markerLocation = new L.LatLng(lat, lon);
+                    var marker = new L.circleMarker(markerLocation, {
+                      radius: sizeCircle(radius),
+                      fillColor: "#ff0000",
+                      color: "#000000",
+                      weight: 1,
+                      opacity: 1,
+                      fillOpacity: 1,
+                      className: "fadded-add"
+                      }	
+                    ).addTo(layerGroupMarkers);	
+      
+                  setTimeout(function() {
+                    if (marker != undefined) {
+                      marker.setStyle({opacity: 0.5, fillOpacity: 0.5});
+                    };
+                    }, 2000);
+      
+                  setTimeout(function() {
+                    if (marker != undefined) {
+                      marker.setStyle({opacity: 0, fillOpacity: 0});
+                    };
+                    }, 2700);
+                    
+                  }, startTime + t*200);	
+                  timeoutArray.push(timeoutValue);
+                }
+              }
+            };
+            
+            // function for pause button
+            function pauseResults() {
+            for (let j = slider.value; j < timeoutArray.length; j++) {
+                clearTimeout(timeoutArray[j]);
+              }
+            };
+            
+      
+            //function for reset button
+            function resetResults() {
+              for (let i = 0; i < timeoutArray.length; i++) {
+                clearTimeout(timeoutArray[i]);
+              }
+              layerGroupMarkers.clearLayers();
+              slider.value = 0;
+              output.innerHTML = datesArray[0];
+            };
+          </script>
+        </figure>
+        <header class="entry-header">
+          <h1>Map of Every Terrorist Attack Since 1950</h1>
+          <p>
+            Every reported terrorist attack since 1950: locations, suspects,
+            victims, weapons and targets.
+          </p>
+        </header>
+        <div class="entry-content">
+
+          <section class="timeline recent-incidents">
+            <header>
+              <h2>Recent incidents</h2>
+              <p>The 10 most recent reported terrorist incidents.</p>
+            </header>
+            
+          </section>
+
+          <section class="continents">
+            <header>
+              <h2>Worst affected regions</h2>
+              <p>Which regions have been affected most by terrorirsm?</p>
+            </header>
+          </section>
+
+          <section class="deaths-incidents">
+            <header>
+              <h2>All incidents and deaths</h2>
+              <p>Number of reported incidents and deaths per year.</p>
+            </header>
+          </section>
+
+          <section class="conflicts">
+            <header>
+              <h2>Conflicts from 1970-2020</h2>
+              <p>The number of reported incidents per conflict per year.</p>
+            </header>
+
+            
+          </section>
+
+          <section class="timeline major-incidents">
+            <header>
+              <h2>Major incidents</h2>
+              <p>Incidents resulting in more than 50 reported fatalities.</p>
+            </header>
+           
+          </section>
+
+          <section class="terrorist-groups">
+            <header>
+              <h2>Terrorist groups</h2>
+              <p>
+                Number of attacks committed per terrorist group, based on the
+                suspected group.
+              </p>
+            </header>
+            
+          </section>
+
+          <section class="attack-types"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+            <header>
+              <h2>Attack types / Weapons Usage</h2>
+              <p>How the choice of weapons has changed over time.</p>
+            </header>
+            
+          </section>
+        </div>
+        <!-- .entry-content -->
+      </article>
+    </main>
+    <script src="./terrorism_files/moment.min.js.download" integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg==" crossorigin="anonymous"></script>
+    <script src="./terrorism_files/Chart.min.js.download" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script src="./terrorism_files/choices.min.js.download"></script>
+    <script src="./terrorism_files/scripts.js.download"></script>
+    <script src="./terrorism_files/helpers.js.download"></script>
+    <script src="./terrorism_files/values.js.download"></script>
+    <script src="./terrorism_files/animated_chart.js.download"></script>
+
+    <script>
+      // For the header.html include
+      // includeHTML();
+    </script>
+
+    <script>
+      //////////// Terrorism KPIs start
+      // mainload();
+
+      var deaths_incidents_charts = null;
+      var terrorist_group_chart_select = null;
+      var terrorist_group_chart = null;
+      var conflict_chart = null;
+      var conflict_select = null;
+      var attack_types_chart = null;
+      var attack_types_select = null;
+      var colors = [];
+      window.onload = function () {
+        window.deaths_incidents_charts = createchart("deaths-incidents-chart");
+        window.terrorist_group_chart = createchart("terrorist_group_chart");
+        window.terrorist_group_chart_select = createselection(
+          "terrorist_group_chart_select"
+        );
+        window.conflict_select = createselection("conflict_select");
+        window.conflict_chart = createchart("conflict_chart");
+        window.attack_types_select = createselection("attack_types_select");
+        window.attack_types_chart = createchart("attack_types_chart");
+        mainload();
+        window.colors = getcolors();
+      };
+      var tergroupselect = document.getElementById(
+        "terrorist_group_chart_select"
+      );
+      var conflict_select_combo = document.getElementById("conflict_select");
+      tergroupselect.addEventListener("change", function (e) {
+        // console.log(window.terrorist_group_chart_select.getValue(true));
+        var group_arr = window.terrorist_group_chart_select.getValue(true);
+
+        var data = null;
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+
+        xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === this.DONE) {
+            var res = JSON.parse(this.responseText);
+
+            var alldata = getalldata_terrorism(res);
+
+            load_terrorist_groupchart_fun(alldata, group_arr);
+          }
+        });
+
+        xhr.open(
+          "GET",
+          "http://45.63.15.162:8000/data/terrorist_incidents.json"
+        );
+
+        xhr.send(data);
+      });
+      conflict_select_combo.addEventListener("change", function (e) {
+        // console.log(window.terrorist_group_chart_select.getValue(true));
+        var group_arr = window.conflict_select.getValue(true);
+
+        var data = null;
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+
+        xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === this.DONE) {
+            var res = JSON.parse(this.responseText);
+
+            var alldata = getalldata_terrorism(res);
+
+            conflicts_chart(alldata, group_arr, window.conflict_chart);
+          }
+        });
+
+        xhr.open(
+          "GET",
+          "http://45.63.15.162:8000/data/terrorist_incidents.json"
+        );
+
+        xhr.send(data);
+      });
+      
+      var attak_typecombo = document.getElementById("attack_types_select");
+      attak_typecombo.addEventListener("change", function (e) {
+        // console.log(window.terrorist_group_chart_select.getValue(true));
+        var group_arr = window.attack_types_select.getValue(true);
+
+        var data = null;
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+
+        xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === this.DONE) {
+            var res = JSON.parse(this.responseText);
+
+            var alldata = getalldata_terrorism(res);
+
+            attack_types_chart_fun(alldata, group_arr, window.attack_types_chart);
+          }
+        });
+
+        xhr.open(
+          "GET",
+          "http://45.63.15.162:8000/data/terrorist_incidents.json"
+        );
+
+        xhr.send(data);
+      });
+
+      function mainload() {
+        var data = null;
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+
+        xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === this.DONE) {
+            var res = JSON.parse(this.responseText);
+            KPI_data(res);
+            var alldata = getalldata_terrorism(res);
+            console.log(alldata);
+
+            death_incidentscharts_fun(window.deaths_incidents_charts, alldata);
+            majorincidents_fun(alldata);
+            load_terrorist_groupchartcombo(alldata, 5);
+
+            load_terrorist_groupchart_fun(
+              alldata,
+              terrorist_group_chart_select.getValue(true)
+            );
+            recentincidents(alldata);
+            majorincidentsincidents(alldata);
+            conflict_select_func(alldata, 5, window.conflict_select);
+            conflicts_chart(
+              alldata,
+              window.conflict_select.getValue(true),
+              window.conflict_chart
+            );
+            
+            
+            attack_types_select_func(alldata, 5, window.attack_types_select);
+            attack_types_chart_fun(
+              alldata,
+              window.attack_types_select.getValue(true),
+              window.attack_types_chart
+            );
+          }
+        });
+
+        xhr.open(
+          "GET",
+          "http://45.63.15.162:8000/data/terrorist_incidents.json"
+        );
+
+        xhr.send(data);
+      }
+      function majorincidents_fun(data) {
+        // data.forEach(element => {
+        //   if (data.total_deaths>0) {
+        //   }
+        // });
+      }
+      function recentincidents(data) {
+        data = data.sort(function (a, b) {
+          return new Date(b.fulldate) - new Date(a.fulldate);
+        });
+        console.log(data);
+        var i = 0;
+        var apn = "";
+        data.forEach((element) => {
+          if (i <= 10) {
+            ++i;
+            apn += "<li>";
+              
+            apn += "<time>" + element.date+" "+element.year + "</time>";
+            // apn +="<h3><a>" + element.city + " " + element.country + "</a></h3>";
+            
+            apn += "<h3>" + element.maker + " "  + "</h3>";
+            apn += "<ul>";
+            apn += "  <li>Perpetrator:" + element.perpetrator + "</li>";
+            apn += "  <li>" + element.total_death + " fatalities</li>";
+            apn += "  <li>" + element.injured + " injuries</li>";
+
+            apn += "</ul>";
+
+            apn += "</li>";
+            //  <li>
+            //             <time>The date</time>
+            //             <h3>Location</h3>
+            //             <ul>
+            //               <li>Perpetrator: [perpetrator]</li>
+            //               <li>[dead] fatalities</li>
+            //               <li>[injured] injuries</li>
+            //             </ul>
+            //           </li>
+          }
+        });
+        addtotag("recent_incidents_ol", apn);
+      }
+      function majorincidentsincidents(data) {
+        data = data.sort(function (a, b) {
+          return new Date(b.fulldate) - new Date(a.fulldate);
+        });
+        var i = 0;
+        var apn = "";
+        data.forEach((element) => {
+          if (element.total_death >= 200) {
+
+
+            ++i;
+            apn += "<li>";
+            apn += "<time>" + element.date+" "+element.year + "</time>";
+            apn += "<h3>" + element.maker+ "</h3>";
+            // apn += "<h3>" + element.city + " " + element.country + "</h3>";
+            apn += "<ul>";
+            apn += "  <li>Perpetrator:" + element.perpetrator + "</li>";
+            apn += "  <li>" + element.total_death + " fatalities</li>";
+            apn += "  <li>" + element.injured + " injuries</li>";
+
+            apn += "</ul>";
+
+            apn += "</li>";
+            //  <li>
+            //             <time>The date</time>
+            //             <h3>Location</h3>
+            //             <ul>
+            //               <li>Perpetrator: [perpetrator]</li>
+            //               <li>[dead] fatalities</li>
+            //               <li>[injured] injuries</li>
+            //             </ul>
+            //           </li>
+          }
+        });
+        addtotag("majorincidents_ol", apn);
+      }
+
+      function load_terrorist_groupchart_fun(data, selected_data) {
+        // console.log(selected_data);
+        var trr_group = groupby_trrgroup(data);
+        var trr_group_keys = Object.keys(trr_group);
+        var data_set = [];
+        var i = 0;
+        trr_group_keys.forEach((group_key) => {
+          selected_data.forEach((selected_key) => {
+            if (group_key == selected_key) {
+              var groupedyears = groupbyyear(trr_group[group_key]);
+              // console.log();
+              var yearkeys = Object.keys(groupedyears);
+              yearkeys = yearkeys.sort((a, b) => a - b);
+              var count_arr = [];
+
+              yearkeys.forEach((ykey) => {
+                count_arr.push({
+                  y: groupedyears[ykey].length,
+                  t: moment(ykey + "-01-01").toDate(),
+                });
+              });
+
+              var colors = getcolors();
+
+              data_set.push({
+                label: group_key,
+                data: count_arr,
+                backgroundColor: window.colors[i],
+
+                borderColor: window.colors[i],
+
+                type: "line",
+                pointRadius: 2,
+                fill: false,
+                lineTension: 0,
+                borderWidth: 3,
+              });
+              ++i;
+            }
+          });
+        });
+
+        renderChart(data_set, selected_data, window.terrorist_group_chart);
+      }
+      function conflict_select_func(data, count, select) {
+        var conflict_group = groupbyconflict(data);
+        var conflict_group_keys = Object.keys(conflict_group);
+        var data_set = [];
+        var selectcount_arr = [];
+        var selectcount = 0;
+
+        conflict_group_keys.forEach((element) => {
+          if (element === undefined || element == "") {
+          } else {
+            data_set.push({
+              key: element,
+              count: conflict_group[element].length,
+            });
+          }
+        });
+        data_set.sort((a, b) => b.count - a.count);
+        data_set.forEach((element) => {
+          var selected = false;
+          if (selectcount <= count) {
+            selected = true;
+          }
+          if (element.key != "undefined") {
+            selectcount_arr.push({
+              value: element.key,
+              label: element.key,
+              selected: selected,
+            });
+            // console.log( element.key);
+          }
+          ++selectcount;
+        });
+        select.setChoices(selectcount_arr, "value", "label", false);
+      }
+      function attack_types_select_func(data, count, select) {
+        var terrorist_group = groupby_trrtype(data);
+        var terrorist_group_keys = Object.keys(terrorist_group);
+        var data_set = [];
+        var selectcount_arr = [];
+        var selectcount = 0;
+
+        terrorist_group_keys.forEach((element) => {
+          if (element === undefined || element == "") {
+          } else {
+            data_set.push({
+              key: element,
+              count: terrorist_group[element].length,
+            });
+          }
+        });
+        data_set.sort((a, b) => b.count - a.count);
+        data_set.forEach((element) => {
+          var selected = false;
+          if (selectcount <= count) {
+            selected = true;
+          }
+          if (element.key != "undefined") {
+            selectcount_arr.push({
+              value: element.key,
+              label: element.key,
+              selected: selected,
+            });
+            // console.log( element.key);
+          }
+          ++selectcount;
+        });
+        select.setChoices(selectcount_arr, "value", "label", false);
+      }
+      function load_terrorist_groupchartcombo(data, count) {
+        var trr_group = groupby_trrgroup(data);
+        var trr_group_keys = Object.keys(trr_group);
+        var data_set = [];
+        var selectcount_arr = [];
+        var selectcount = 0;
+
+        trr_group_keys.forEach((element) => {
+          if (element === undefined || element == "") {
+          } else {
+            data_set.push({
+              key: element,
+              count: trr_group[element].length,
+            });
+          }
+        });
+        data_set.sort((a, b) => b.count - a.count);
+        // console.log(data_set);
+
+        data_set.forEach((element) => {
+          var selected = false;
+          if (selectcount <= count) {
+            selected = true;
+          }
+          if (element.key != "undefined") {
+            selectcount_arr.push({
+              value: element.key,
+              label: element.key,
+              selected: selected,
+            });
+            // console.log( element.key);
+          }
+          ++selectcount;
+        });
+        terrorist_group_chart_select.setChoices(
+          selectcount_arr,
+          "value",
+          "label",
+          false
+        );
+      }
+      function KPI_data(res) {
+        // console.log(res);
+        // console.log(res[2019]);
+        addtotag("nofincidents_2020", res[2020].length);
+        // var data2019=get2019data(res[2019], 2019);
+
+        var data2019 = get_data_byyear(res[2019], 2019);
+        var country_count2020 = getuniquecountries(res[2020], 2020);
+        var country_count2019 = getuniquecountries(data2019, 2019);
+        var nof_deaths2020 = getnoofdeaths(res[2020]);
+        var nofincidents_2020_percentage =
+          ((data2019.length - res[2020].length) / data2019.length) * 100;
+        var noofdeathsin2019 = getnoofdeaths(data2019);
+        var nofdeaths_2020_percentage =
+          ((nof_deaths2020 - noofdeathsin2019) / noofdeathsin2019) * 100;
+        var apn2019 = tablequery(data2019);
+        var apn2020 = tablequery(res[2020]);
+        addtotag("2019", apn2019);
+        addtotag("2020", apn2020);
+        var country_count2020_percentage =
+          ((Object.keys(country_count2020).length -
+            Object.keys(country_count2019).length) /
+            Object.keys(country_count2019).length) *
+          100;
+        if (nofincidents_2020_percentage >= 0) {
+          add_class("nofincidents_2020_percentage", "increase");
+        } else {
+          add_class("nofincidents_2020_percentage", "decrease");
+        }
+        if (nofdeaths_2020_percentage >= 0) {
+          add_class("nofdeaths_2020_percentage", "increase");
+        } else {
+          add_class("nofdeaths_2020_percentage", "decrease");
+        }
+        if (country_count2020_percentage >= 0) {
+          add_class("country_count2020_percentage", "increase");
+        } else {
+          add_class("country_count2020_percentage", "decrease");
+        }
+        addtotag(
+          "nofincidents_2020_percentage",
+          +(res[2020].length - data2019.length) +
+            "(" +
+            nofincidents_2020_percentage.toFixed(2) +
+            "%)"
+        );
+        addtotag(
+          "nofdeaths_2020_percentage",
+          nof_deaths2020 -
+            noofdeathsin2019 +
+            "(" +
+            nofdeaths_2020_percentage.toFixed(2) +
+            "%)"
+        );
+        addtotag(
+          "country_count2020_percentage",
+          Object.keys(country_count2020).length -
+            Object.keys(country_count2019).length +
+            "(" +
+            country_count2020_percentage.toFixed(2) +
+            "%)"
+        );
+        addtotag("nofincidents_2020", res[2020].length);
+        addtotag("country_count2020", Object.keys(country_count2020).length);
+        addtotag("deathsin2020", nof_deaths2020);
+        var all_data = getalldata_intoarr(res, 2020);
+        var worstaffectedcountry = getworseaffectedcountry(all_data);
+        var worstaffectedcity = getworstaffectedcity(all_data);
+        var worstincident = getworseincident(all_data);
+        //   console.log(worstaffectedcity);
+        addtotag(
+          "worst_affected_country",
+          worstaffectedcountry.country +
+            " - " +
+            worstaffectedcountry.count +
+            " deaths"
+        );
+        addtotag(
+          "worst_affected_city",
+          worstaffectedcity.country +
+            " - " +
+            worstaffectedcity.count +
+            " deaths"
+        );
+        addtotag(
+          "worst_incident",
+          worstincident.location + " - " + worstincident.date
+        );
+      }
+
+      ////-------------------chart
+      function death_incidentscharts_fun(mychart, data) {
+        var groupby_year_data = groupbyyear(data);
+        var labels = Object.keys(groupby_year_data);
+        var dataset = [];
+        var formated_deaths = [];
+        var formated_incidents = [];
+        labels.forEach((label) => {
+          formated_incidents.push({
+            t: moment(label + "-01-01"),
+            y: groupby_year_data[label].length,
+          });
+
+          formated_deaths.push({
+            t: moment(label + "-01-01"),
+            y: groupby_year_data[label].sum("total_death"),
+          });
+        });
+        console.log(formated_deaths);
+        // console.log();
+        dataset.push(
+          {
+            label: "number of deaths per year 1970 - present",
+            data: formated_deaths,
+            backgroundColor: "blue",
+
+            borderColor: "blue",
+
+            type: "line",
+            pointRadius: 2,
+            fill: false,
+            lineTension: 0,
+            borderWidth: 3,
+          },
+          {
+            label: "number of incidents per year 1970 - present",
+            data: formated_incidents,
+            backgroundColor: "orange",
+
+            borderColor: "orange",
+
+            type: "bar",
+            pointRadius: 2,
+            fill: false,
+            lineTension: 0,
+            borderWidth: 3,
+          }
+        );
+        // console.log(mychart.data);
+        renderChart(dataset, labels, mychart);
+      }
+      function conflicts_chart(data, combodata, mychart) {
+        var groupconflict = groupbyconflict(data);
+        var conflict_keys = Object.keys(groupconflict);
+        var data_set = [];
+        var i = 0;
+        conflict_keys.forEach((key) => {
+          combodata.forEach((combo_key) => {
+            if (key == combo_key) {
+              ++i;
+              var grpyear = groupbyyear(groupconflict[key]);
+              var count_arr = [];
+              Object.keys(grpyear).forEach((ykey) => {
+                count_arr.push({
+                  y: grpyear[ykey].length,
+                  t: moment(ykey + "-01-01").toDate(),
+                });
+              });
+              // console.log(Object.keys(grpyear));
+
+              var colors = getcolors();
+
+              data_set.push({
+                label: combo_key,
+                data: count_arr,
+                backgroundColor: window.colors[i],
+
+                borderColor: window.colors[i],
+
+                type: "line",
+                pointRadius: 2,
+                fill: false,
+                lineTension: 0,
+                borderWidth: 3,
+              });
+            }
+          });
+        });
+        renderChart(data_set, conflict_keys, window.conflict_chart);
+      }
+      // function () {  }
+      function attack_types_chart_fun(data, combodata, mychart) {
+        var grouptrrtype = groupby_trrtype(data);
+        var grouptrrtype_keys = Object.keys(grouptrrtype);
+        var data_set = [];
+        var i = 0;
+        grouptrrtype_keys.forEach((key) => {
+          combodata.forEach((combo_key) => {
+            if (key == combo_key) {
+              ++i;
+              var grpyear = groupbyyear(grouptrrtype[key]);
+              var count_arr = [];
+              Object.keys(grpyear).forEach((ykey) => {
+                count_arr.push({
+                  y: grpyear[ykey].length,
+                  t: moment(ykey + "-01-01").toDate(),
+                });
+              });
+              // console.log(Object.keys(grpyear));
+
+              var colors = getcolors();
+
+              data_set.push({
+                label: combo_key,
+                data: count_arr,
+                backgroundColor: window.colors[i],
+
+                borderColor: window.colors[i],
+
+                type: "line",
+                pointRadius: 2,
+                fill: false,
+                lineTension: 0,
+                borderWidth: 3,
+              });
+            }
+          });
+        });
+        renderChart(data_set, grouptrrtype_keys, window.attack_types_chart);
+      }
+      // function () {  }
+      ///*************chart
+
+      function tablequery(data) {
+        var i = 0;
+        var apn = "";
+        apn += "<tr>";
+        apn += "<td>" + "#" + "</td>";
+        apn += "<td>" + "type" + "</td>";
+        apn += "<td>" + "dead1" + "</td>";
+        apn += "<td>" + "dead2" + "</td>";
+        apn += '<td class="">' + "date" + "</td>";
+        apn += '<td class="">' + "location" + "</td>";
+
+        apn += '<td class="">' + "city" + "</td>";
+        apn += '<td class="">' + "country" + "</td>";
+        apn += "</tr>";
+
+        data.forEach((element) => {
+          var death2 = 0;
+          if ("dead2" in element) {
+            death2 = parseInt(element.dead2.replace(/[^\d\.\-]/g, ""));
+          }
+          apn += "<tr>";
+          apn += "<td>" + ++i + "</td>";
+          apn += "<td>" + element.type + "</td>";
+          apn += '<td class="death">' + element.dead1 + "</td>";
+          apn += '<td class="death2">' + death2 + "</td>";
+          apn += '<td class="">' + element.date + "</td>";
+          apn += '<td class="">' + element.location + "</td>";
+          apn += '<td class="">' + element.city + "</td>";
+          apn += '<td class="">' + element.country + "</td>";
+          apn += "</tr>";
+        });
+        return apn;
+      }
+
+      //////////// Terrorism KPIs end
+    </script>
+  
+
+<div id="shadowMeasureIt"></div><div id="divCoordMeasureIt"></div><div id="divRectangleMeasureIt"><div id="divRectangleBGMeasureIt"></div></div></body></html>

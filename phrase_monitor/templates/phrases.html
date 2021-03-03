@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <form action="{{ url_for('phrases') }}" method="POST">
+    <div class="field">
+      <div class="control">
+        <input name="phrase" placeholder="Enter phrase" />
+      </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="button is-warning is-light">Submit!</button>
+    </div>
+  </form>
+</div>
+<br />
+
+{% for row in result %}
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div class="col-md-10">{{ row.phrase }}</div>
+      <div class="col-md-2">
+        <a href="/{{row.id}}/monitor_page" class="button is-success pull-right">View</a>&nbsp;&nbsp;
+        <a href="/edit_phrase/{{row.id}}" class="button is-warning pull-right">Edit</a>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <p class="card-text">Created at: &nbsp;{{ row.created_date }}</p>
+    </div>
+    <div class="card-body">
+      <p id="{{ row.phrase }}" class="card-text">Occurrences/minute: &nbsp;0.00</p>
+    </div>
+  </div>
+</div>
+
+<br />
+<br />
+{% endfor %}
+
+<script>
+  $(document).ready(function () {
+    (function worker() {
+      $.ajax({
+        url: "/average_phrase_per_minute",
+        success: function (data) {
+          //$('.result').html(data);
+          data = JSON.parse(data);
+          $.each(data, function (index, value) {
+            $("#" + value.phrase).html("Occurrences/minute: &nbsp;" + value.average_per_min);
+          });
+          console.log(data);
+        },
+        complete: function () {
+          // Schedule the next request when the current one's complete
+          setTimeout(worker, 20000);
+        },
+      });
+    })();
+  });
+</script>
+{% endblock %}

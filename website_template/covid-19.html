@@ -1,0 +1,221 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Covid-19 Map: Global Deaths Per Day</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="assets/css.css?v=1.1">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Jost:ital,wght@0,400;0,500;1,400;1,500&family=Kumbh+Sans:wght@300;400;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Sen:wght@400;700&Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="article" onload="mainfunc()">
+    <header class="site-header">
+        <div class="site-logo">
+            <a href="/"><img src="/assets/img/a_revolutionary_act.png" alt="A Revolutionary Act"></a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">Menu</div>
+        <nav>
+           
+        </nav>
+    </header>
+    <main>
+        <article>
+            <figure class="feature-image">
+                <img src="assets/img/covid.jpg" alt="Covid nurse in hospital">
+            </figure>
+            <header class="entry-header">
+                <h1>Covid Monitor</h1>
+                <p>See how Covid-19 is spreading accross the world.</p>
+            </header>
+            <div class="entry-content">
+                <section class="kpis">
+                    <h2>Snapshot</h2>
+                    <ul>
+                        <li>
+                            <div>
+                                <b>Country name</b> 
+                                <i>% change compared to previous week</i>
+                                <small>worst affected country in last 7 days</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <b>Country name</b> 
+                                <i>number (%) change compared to previous week</i>
+                                <small>most rapidly worsening country in last 7 days</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <b>Country name</b> 
+                                <i>number (%) change compared to previous week</i>
+                                <small>most rapidly improving country in last 7 days</small>
+                            </div>
+                        </li>
+                        
+                        
+                        <li class="cases">
+                            <div>
+                                <b>number</b>
+                                <i>change (%) change in last 7 days</i>
+                                <small>Number of cases worldwide</small>
+                            </div>
+                        </li>
+                        <li class="deaths">
+                            <div>
+                                <b>number</b>
+                                <i>change (%) change in last 7 days</i>
+                                <small>Number of deaths worldwide</small>
+                            </div>
+                        </li>
+                        <li class="recoveries">
+                            <div>
+                                <b>number</b>
+                                <i>change (%) change in last 7 days</i>
+                                <small>Number of recovered patients worldwide</small>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section class="animated-map">
+                    <header>
+                        <h2>Animated Map of Covid-19 Cases and Deaths</h2>
+                        <p>See how Covid-19 is spreading accross the world. One second represents one week.</p>
+                    </header>
+                    <div class="chart large-chart">
+                        <p>Place animated map here.</p>
+                    </div>
+                </section>
+                <section class="global-cases-deaths">
+                    <header>
+                        <h2>New cases and deaths per week</h2>
+                        <p>Total number of <strong>new cases</strong> per week compared to total number of deaths per week</p>
+                    </header>
+                    <div class="chart large-chart">
+                        <p>Please note Arshak: this chart should show new cases per week, not cumulative cases.</p>
+                    </div>
+                </section>
+                <section class="regional-charts">
+                    <header>
+                        <h2>Which regions are worst affected by Covid-19?</h2>
+                        <p>Number of new cases and number of new deaths per week, per region.</p>
+                    </header>
+                    <div class="multiple-charts six-charts">
+                        <figure>
+                            <div>
+                            North America chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            South America chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Europe chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Africa and the Middle East chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Asia chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Australasia chart
+                            </div>
+                        </figure>
+                    </div>
+                </section>
+                <section class="country-charts">
+                    <header>
+                        <h2>Which countries are worst affected by Covid-19?</h2>
+                        <p>Number of new cases and number of new deaths per week, per region.</p>
+                    </header>
+                    <div class="multiple-charts twelve-charts">
+                        <figure>
+                            <div>
+                            United States chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Canada chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Mexico chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            UK chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            France chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Italy chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Germany chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Sweden chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            China chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            South Africa chart
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Australia
+                            </div>
+                        </figure>
+                        <figure>
+                            <div>
+                            Brazil
+                            </div>
+                        </figure>
+                    </div>
+                </section>
+                
+            </div>
+            <!-- .entry-content -->
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; copyright 2020 A Revolutionary Act.</p>
+    </footer>
+
+</body>
+</html>
