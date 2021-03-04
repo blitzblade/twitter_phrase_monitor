@@ -15,13 +15,13 @@ api = tweepy.API(auth,wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 db = TwitterDb()
 phrase_objects = db.get_phrases()
 
+
 def extract_phrase(status, phrase_list):
     for i in phrase_list:
         selected_phrase = i.lower()
         if selected_phrase in status.lower():
             return selected_phrase
         
-
 
 def in_list(status, _list):
     for i in _list:

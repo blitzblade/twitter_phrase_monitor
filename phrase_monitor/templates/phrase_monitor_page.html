@@ -1,94 +1,94 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="container">
-    <h2>{{ data.phrase }}</h2>
-    <select id="duration_selector">
-        <option selected value="minute">Minute</option>
-        <option value="hour">Hour</option>
-        <option value="day">Day</option>
-        <option value="month">Month</option>
-        <option value="year">Year</option>
-    </select>
+<!--{% extends "base.html" %}-->
+<!--{% block content %}-->
+<!--<div class="container">-->
+<!--    <h2>{{ data.phrase }}</h2>-->
+<!--    <select id="duration_selector">-->
+<!--        <option selected value="minute">Minute</option>-->
+<!--        <option value="hour">Hour</option>-->
+<!--        <option value="day">Day</option>-->
+<!--        <option value="month">Month</option>-->
+<!--        <option value="year">Year</option>-->
+<!--    </select>-->
 
-    <div>
-        <div class="chart-container col-md-8" style="position: relative; height:20vh; width:50vw">
-            <canvas id="chart"></canvas>
-        </div>
+<!--    <div>-->
+<!--        <div class="chart-container col-md-8" style="position: relative; height:20vh; width:50vw">-->
+<!--            <canvas id="chart"></canvas>-->
+<!--        </div>-->
 
-        <div class="col-md-4">
-            <div>
-                <label>Rolling Average: &nbsp;</label><span id="rolling-average">{{ rolling_average }}</span>
-            </div>
-            <div id="band-div" style="display: none;" class="alert alert-warning">
-                <strong>Warning!</strong>
-                <p id="band-message"></p>
-            </div>
-            <div id="band" class="band">
-                <p id="band-type"></p>
-            </div>
-        </div>
-    </div>
+<!--        <div class="col-md-4">-->
+<!--            <div>-->
+<!--                <label>Rolling Average: &nbsp;</label><span id="rolling-average">{{ rolling_average }}</span>-->
+<!--            </div>-->
+<!--            <div id="band-div" style="display: none;" class="alert alert-warning">-->
+<!--                <strong>Warning!</strong>-->
+<!--                <p id="band-message"></p>-->
+<!--            </div>-->
+<!--            <div id="band" class="band">-->
+<!--                <p id="band-type"></p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
-</div>
+<!--</div>-->
 
 
-<script>
-    var max = 0;
-    var steps = 10;
-    var chartData = {};
+<!--<script>-->
+<!--    var max = 0;-->
+<!--    var steps = 10;-->
+<!--    var chartData = {};-->
 
-    function respondCanvas(d) {
-        var c = $('#chart');
-        var ctx = c.get(0).getContext("2d");
+<!--    function respondCanvas(d) {-->
+<!--        var c = $('#chart');-->
+<!--        var ctx = c.get(0).getContext("2d");-->
 
-        var ctx = document.getElementById('chart').getContext('2d');
-        var chart = new Chart(ctx, {
-            // The type of chart we want to create
-            type: 'line',
+<!--        var ctx = document.getElementById('chart').getContext('2d');-->
+<!--        var chart = new Chart(ctx, {-->
+<!--            // The type of chart we want to create-->
+<!--            type: 'line',-->
 
-            // The data for our dataset
-            data: d,
+<!--            // The data for our dataset-->
+<!--            data: d,-->
 
-            // Configuration options go here
-            options: {}
-        });
-    }
+<!--            // Configuration options go here-->
+<!--            options: {}-->
+<!--        });-->
+<!--    }-->
 
-    var GetChartData = function () {
-        var duration = $('#duration_selector').val()
-        $.ajax({
-            url: '/chart_data_single/{{ data.id }}/' + duration,
-            method: 'GET',
-            dataType: 'json',
-            success: function (d) {
+<!--    var GetChartData = function () {-->
+<!--        var duration = $('#duration_selector').val()-->
+<!--        $.ajax({-->
+<!--            url: '/chart_data_single/{{ data.id }}/' + duration,-->
+<!--            method: 'GET',-->
+<!--            dataType: 'json',-->
+<!--            success: function (d) {-->
 
-                // max = Math.max.apply(Math, 100);
-                // steps = 10;
-                if (d.band.message != "") {
-                    $("#band-div").show();
-                }
+<!--                // max = Math.max.apply(Math, 100);-->
+<!--                // steps = 10;-->
+<!--                if (d.band.message != "") {-->
+<!--                    $("#band-div").show();-->
+<!--                }-->
 
-                $("#rolling-average").text(d.band.rolling_average);
-                $("#band-message").text(d.band.message);
-                $("#band-type").text(`Band: ${d.band.type}`);
-                $(".band").attr("style", "background-color: " + d.band.color);
+<!--                $("#rolling-average").text(d.band.rolling_average);-->
+<!--                $("#band-message").text(d.band.message);-->
+<!--                $("#band-type").text(`Band: ${d.band.type}`);-->
+<!--                $(".band").attr("style", "background-color: " + d.band.color);-->
 
-                respondCanvas(d.canvas_data);
-            }
-        });
-    };
+<!--                respondCanvas(d.canvas_data);-->
+<!--            }-->
+<!--        });-->
+<!--    };-->
 
-    $(document).ready(function () {
-        GetChartData();
+<!--    $(document).ready(function () {-->
+<!--        GetChartData();-->
 
-        $("#duration_selector").change(function () {
-            GetChartData();
-        });
+<!--        $("#duration_selector").change(function () {-->
+<!--            GetChartData();-->
+<!--        });-->
 
-        window.setInterval(function () {
-            GetChartData();
-        }, 60 * 1000);
+<!--        window.setInterval(function () {-->
+<!--            GetChartData();-->
+<!--        }, 60 * 1000);-->
 
-    });
-</script>
-{% endblock %}
+<!--    });-->
+<!--</script>-->
+<!--{% endblock %}-->

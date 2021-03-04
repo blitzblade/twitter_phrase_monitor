@@ -8,7 +8,7 @@ def print_err(err):
 class TwitterDb:
     def __init__(self):
         # self.pwd = "postgres"
-        self.pwd = "baw48KdcN6yRQ37yVEWjuehtx"
+        self.pwd = "password"
         self.host = "localhost"
         self.conn = psycopg2.connect("dbname=twitter_streamer_db user=postgres password={} host={}".format(self.pwd,self.host))
         self.cur = self.conn.cursor(cursor_factory=RealDictCursor)
